@@ -32,7 +32,7 @@ const featuredCards = {
     title: "Trakošćanska 24, Varaždin",
     description: "Posjetite nas srijedom od 18-20h. Dođite na druženje!",
     buttonText: "Kako do nas",
-    buttonLink: "index_sample.html#kontakt"
+    buttonLink: "index.html#kontakt"
   }
 };
 
@@ -88,7 +88,7 @@ function getHeaderHtml(activePage) {
       <nav class="bg-white border-b border-slate-200 relative">
         <div class="container mx-auto px-6 h-20 flex justify-between items-center">
           <!-- Logo -->
-          <a href="index_sample.html" class="flex items-center gap-2">
+          <a href="index.html" class="flex items-center gap-2">
             <img
               src="materials/logo.png"
               alt="HPD MIV"
@@ -162,7 +162,7 @@ function getHeaderHtml(activePage) {
               <div class="col-span-1">
                 <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Plan Izleta</h3>
                 <div class="space-y-4">
-                  <a href="index_sample.html#izleti" class="flex items-start gap-3 group">
+                  <a href="index.html#izleti" class="flex items-start gap-3 group">
                     <div class="w-8 h-8 bg-brand-50 rounded-lg flex items-center justify-center text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -454,7 +454,7 @@ function getFooterHtml() {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <!-- Column 1: About -->
           <div>
-            <a href="index_sample.html" class="inline-block mb-4">
+            <a href="index.html" class="inline-block mb-4">
               <img src="materials/logo.png" alt="HPD MIV" class="h-14" />
             </a>
             <p class="text-slate-400 text-sm mb-6 leading-relaxed">
@@ -483,10 +483,10 @@ function getFooterHtml() {
           <div>
             <h4 class="font-bold text-white mb-6 text-sm uppercase tracking-wider">Brzi linkovi</h4>
             <ul class="space-y-3">
-              <li><a href="index_sample.html#izleti" class="text-slate-400 hover:text-white transition text-sm">Kalendar izleta</a></li>
+              <li><a href="index.html#izleti" class="text-slate-400 hover:text-white transition text-sm">Kalendar izleta</a></li>
               <li><a href="pristupnica.html" class="text-slate-400 hover:text-white transition text-sm">Članstvo</a></li>
               <li><a href="ops.html" class="text-slate-400 hover:text-white transition text-sm">Planinarska škola</a></li>
-              <li><a href="index_sample.html#novosti" class="text-slate-400 hover:text-white transition text-sm">Novosti</a></li>
+              <li><a href="index.html#novosti" class="text-slate-400 hover:text-white transition text-sm">Novosti</a></li>
               <li><a href="#" class="text-slate-400 hover:text-white transition text-sm">Česta pitanja</a></li>
             </ul>
           </div>
