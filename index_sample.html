@@ -1,0 +1,1576 @@
+﻿<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HPD MIV Varaždin – Hrvatsko planinarsko društvo</title>
+    <meta
+      name="description"
+      content="HPD MIV Varaždin - najveće planinarsko društvo u regiji. Pridružite se zajednici od 1200+ članova. Organizirani izleti, planinarska škola i aktivnosti za sve generacije."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="HPD MIV Varaždin – Hrvatsko planinarsko društvo"
+    />
+    <meta
+      property="og:description"
+      content="Pridružite se najvećoj planinarskoj zajednici u regiji. Organizirani izleti, planinarska škola i aktivnosti za sve generacije."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:url" content="https://hpdmiv.hr" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            colors: {
+              brand: {
+                50: "#DCE8E1",
+                100: "#2D4F39",
+                600: "#2d4f39",
+                700: "#B71C1C",
+              },
+              slate: { 850: "#1e293b", 900: "#0f172a" },
+            },
+            boxShadow: {
+              soft: "0 20px 40px -15px rgba(0, 0, 0, 0.05)",
+              card: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)",
+              hover: "0 20px 40px -5px rgba(0, 0, 0, 0.1)",
+              mega: "0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.04)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Panel Animation */
+      .faq-panel {
+        display: none;
+        animation: fadeIn 0.3s ease-out;
+      }
+      .faq-panel.active {
+        display: block;
+      }
+
+      /* Accordion Animation */
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        opacity: 0;
+      }
+      .accordion-item.open .accordion-content {
+        max-height: 500px; /* Arbitrary large height */
+        opacity: 1;
+      }
+      .accordion-icon {
+        transition: transform 0.3s ease;
+      }
+      .accordion-item.open .accordion-icon {
+        transform: rotate(180deg);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Tab Panel Animation (shares fadeIn keyframes above) */
+      .tab-panel {
+        display: none;
+        animation: fadeIn 0.4s ease-out;
+      }
+      .tab-panel.active {
+        display: block;
+      }
+    </style>
+    <style>
+      /* Smooth transitions for dropdowns */
+      .mega-menu {
+        transition: all 0.2s ease-in-out;
+        transform-origin: top;
+      }
+      .mega-menu.hidden {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        display: block; /* Keep block to allow transition */
+        pointer-events: none;
+      }
+      .mega-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Skip to main content link for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-brand-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
+    >
+      Preskoci na glavni sadržaj
+    </a>
+
+    <!-- Header (loaded dynamically) -->
+    <div id="site-header"></div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-12 pb-24 lg:pt-20">
+
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          <!-- LEFT COLUMN: Content -->
+          <div class="w-full lg:w-1/2">
+            <!-- 1. Green Badge -->
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 border border-green-100 text-green-700 text-[11px] font-bold uppercase tracking-wider mb-8"
+            >
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-2 w-2 bg-green-500"
+                ></span>
+              </span>
+              Prijave Otvorene
+            </div>
+
+            <!-- 2. The Exact Headline -->
+            <h1
+              class="text-5xl lg:text-7xl font-extrabold text-slate-900 mb-6 leading-[1.05] tracking-tight"
+            >
+              Istraži prirodu, <br />
+              stvori sjećanja.
+            </h1>
+
+            <p class="text-lg text-slate-500 mb-10 max-w-md leading-relaxed">
+              Pridruži se najvećoj planinarskoj zajednici u regiji. Otkrij
+              staze, upoznaj ljude i pomakni svoje granice.
+            </p>
+
+            <!-- 3. Buttons (Red & White) -->
+            <div class="flex flex-col sm:flex-row gap-4 mb-12">
+              <a
+                href="#izleti"
+                class="text-center bg-brand-600 hover:bg-brand-700 text-white text-lg px-8 py-4 rounded-xl font-bold shadow-lg shadow-green-100 transition transform hover:-translate-y-0.5"
+              >
+                Pogledaj Izlete
+              </a>
+              <a
+                href="pristupnica.html"
+                class="text-center bg-white text-slate-900 border border-slate-200 text-lg px-8 py-4 rounded-xl font-bold hover:bg-slate-50 hover:border-slate-300 transition"
+              >
+                Postani Član
+              </a>
+            </div>
+
+            <!-- 4. Social Proof (Avatars + Context Aware Text) -->
+            <div class="flex items-center gap-4">
+              <div class="flex -space-x-3">
+                <img
+                  class="w-12 h-12 rounded-full border-[3px] border-white object-cover"
+                  src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=100&q=80"
+                  alt="Member"
+                />
+                <img
+                  class="w-12 h-12 rounded-full border-[3px] border-white object-cover"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                  alt="Member"
+                />
+                <div
+                  class="w-12 h-12 rounded-full border-[3px] border-white bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-600"
+                >
+                  +1k
+                </div>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p class="text-sm font-semibold text-slate-600">
+                  aktivnih članova u društvu
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Image + Video Trigger -->
+          <div class="w-full lg:w-1/2 relative">
+            <!-- Main Image (Rounded Corners) -->
+            <div
+              class="relative rounded-[2.5rem] overflow-hidden shadow-2xl h-[550px] w-full group"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop"
+                class="object-cover w-full h-full transform transition duration-1000 group-hover:scale-105"
+                alt="Hiker in mountains"
+              />
+
+              <!-- 5. The Video Pill (Overlay on Cover Photo) -->
+              <div class="absolute bottom-8 left-8">
+                <button
+                  class="bg-white/95 backdrop-blur-md pl-2 pr-6 py-2 rounded-full shadow-lg flex items-center gap-4 hover:scale-105 transition duration-300 group/btn border border-white/50"
+                >
+                  <!-- Red Play Icon Circle -->
+                  <div
+                    class="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center shadow-md group-hover/btn:bg-brand-700 transition"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white fill-current ml-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                  <!-- Text -->
+                  <div class="text-left">
+                    <p
+                      class="font-bold text-slate-900 text-sm leading-none mb-0.5"
+                    >
+                      Pogledaj video
+                    </p>
+                    <p class="text-[11px] text-slate-500 font-medium">
+                      Upoznaj društvo u 2 min
+                    </p>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trips Section -->
+    <section id="izleti" class="py-24 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4"
+        >
+          <div>
+            <span
+              class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block"
+              >Kalendar</span
+            >
+            <h2
+              class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-2"
+            >
+              Nadolazeći Izleti
+            </h2>
+            <p class="text-slate-500 text-lg">
+              Pridružite nam se na sljedećim avanturama.
+            </p>
+          </div>
+          <a
+            href="#"
+            class="inline-flex items-center text-sm font-bold text-brand-600 hover:text-brand-800 transition"
+          >
+            Pogledaj cijeli kalendar
+            <svg
+              class="w-4 h-4 ml-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              ></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Trips Grid - Dynamic from trips-data.js -->
+        <div id="trips-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Cards will be generated dynamically -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Activity Hub Section -->
+      <section id="aktivnosti" class="relative py-24 bg-white overflow-hidden">
+              <div
+        class="absolute bottom-0 left-0 w-full h-40 opacity-15 pointer-events-none"
+        style="
+          background-image: url('materials/mountain-range-2.png');
+          background-repeat: repeat-x;
+          background-position: bottom center;
+          background-size: contain;
+        "
+      ></div>
+      <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-16">
+          <span
+            class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block"
+            >Aktivnosti</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight"
+          >
+            Više od planinarenja
+          </h2>
+          <p class="text-slate-500 text-lg">
+            HPD MIV je zajednica. Saznajte kako se uključiti, educirati i
+            iskoristiti pogodnosti.
+          </p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+          <!-- Left: Navigation -->
+          <div class="w-full lg:w-1/4 flex flex-col gap-2">
+            <button
+              onclick="openTab(event, 'act-membership', 'act')"
+              class="act-btn active text-left px-6 py-5 rounded-xl transition-all duration-300 border-l-[6px] border-slate-800 bg-slate-100 shadow-md"
+            >
+              <span class="block font-bold text-slate-900 text-sm"
+                >Članstvo</span
+              >
+              <span class="block text-xs font-medium text-slate-600 mt-1"
+                >Pogodnosti i cijene</span
+              >
+            </button>
+            <button
+              onclick="openTab(event, 'act-school', 'act')"
+              class="act-btn text-left px-6 py-5 rounded-xl transition-all duration-300 border-l-[6px] border-transparent hover:bg-slate-100 hover:border-slate-300"
+            >
+              <span class="block font-bold text-slate-600 text-sm"
+                >Planinarska Škola</span
+              >
+              <span class="block text-xs font-medium text-slate-400 mt-1"
+                >Edukacija</span
+              >
+            </button>
+            <button
+              onclick="openTab(event, 'act-sections', 'act')"
+              class="act-btn text-left px-6 py-5 rounded-xl transition-all duration-300 border-l-[6px] border-transparent hover:bg-slate-100 hover:border-slate-300"
+            >
+              <span class="block font-bold text-slate-600 text-sm"
+                >Naše Sekcije</span
+              >
+              <span class="block text-xs font-medium text-slate-400 mt-1"
+                >Organizacija</span
+              >
+            </button>
+          </div>
+
+          <!-- Right: Content -->
+          <div class="w-full lg:w-3/4 min-h-[400px]">
+            <!-- PANEL: Membership -->
+            <div id="act-membership" class="tab-panel active">
+              <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2">
+                  <h3 class="text-2xl font-bold text-slate-900 mb-6">
+                    Članarina u društvu
+                  </h3>
+                  <ul class="space-y-4 mb-8">
+                    <li class="flex items-start gap-3">
+                      <div
+                        class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0 mt-0.5"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span class="text-slate-600 text-sm"
+                        ><strong>Osiguranje</strong> od nezgode uključeno u
+                        članarinu.</span
+                      >
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <div
+                        class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0 mt-0.5"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span class="text-slate-600 text-sm"
+                        ><strong>50% popusta</strong> na noćenja u planinarskim
+                        domovima.</span
+                      >
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <div
+                        class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0 mt-0.5"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span class="text-slate-600 text-sm"
+                        >Prednost pri prijavi na atraktivne izlete.</span
+                      >
+                    </li>
+                  </ul>
+                  <a
+                    href="pristupnica.html"
+                    class="inline-block bg-brand-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-brand-700 transition shadow-lg shadow-green-100"
+                  >
+                    Ispuni pristupnicu online
+                  </a>
+                </div>
+                <div class="w-full md:w-1/2 flex justify-center">
+                  <div
+                    class="relative w-80 h-52 rounded-2xl shadow-2xl rotate-2 hover:rotate-0 hover:scale-[1.02] transition duration-500 cursor-pointer overflow-hidden border border-slate-700 bg-slate-900"
+                  >
+                    <img
+                      src="materials/hps-iskaznica.jpg"
+                      alt="HPS iskaznica"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- PANEL: School -->
+            <div id="act-school" class="tab-panel">
+              <div class="flex flex-col md:flex-row gap-10 items-center">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                  <div class="w-full md:w-2/3">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">
+                      Opća planinarska škola
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                      Želite samostalno i sigurno u planine? Naša škola pruža
+                      temeljna znanja o kretanju, opremi, opasnostima, prvoj
+                      pomoći i orijentaciji. Škola traje 2 mjeseca i uključuje
+                      predavanja i terenske vježbe.
+                    </p>
+                    <div
+                      class="bg-orange-50 border border-orange-100 rounded-lg p-4 mb-6 inline-block"
+                    >
+                      <p
+                        class="text-sm font-bold text-orange-800 flex items-center gap-2"
+                      >
+                        <svg
+                          class="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                          ></path>
+                        </svg>
+                        Prijave za proljetni rok su u tijeku!
+                      </p>
+                    </div>
+                    <div>
+                      <a
+                        href="ops.html"
+                        class="inline-block bg-slate-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-slate-700 transition"
+                      >
+                        Saznaj više i prijavi se
+                      </a>
+                    </div>
+                  </div>
+               <div class="w-full md:w-1/3 flex justify-center">
+  <div
+    class="relative w-80 h-52 rounded-2xl shadow-2xl rotate-2 hover:rotate-0 hover:scale-[1.02] transition duration-500 cursor-pointer overflow-hidden border border-slate-700"
+    style="background-color: #272f46;"
+  >
+    <img
+      src="materials/miv-ops.jpeg"
+      alt="MIV OPS"
+      class="absolute inset-0 m-auto max-w-full max-h-full object-contain"
+    />
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL: Sections -->
+            <div id="act-sections" class="tab-panel">
+              <h3 class="text-2xl font-bold text-slate-900 mb-6">
+                Timovi koji pokreću društvo
+              </h3>
+              <p class="text-slate-600 mb-8 max-w-2xl">
+                Svaka sekcija specijalizirana je za određeni aspekt. Kliknite na
+                pojedinu sekciju za detalje o njihovom radu i voditeljima.
+              </p>
+
+              <!-- Grid of Mini Cards -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a
+                  href="sekcije.html#izletnicka"
+                  class="p-4 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-sm transition group bg-white"
+                >
+                  <h4
+                    class="font-bold text-slate-900 group-hover:text-brand-600"
+                  >
+                    Izletnička sekcija
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Društveni izleti diljem Hrvatske.
+                  </p>
+                </a>
+                <a
+                  href="sekcije.html#visokogorska"
+                  class="p-4 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-sm transition group bg-white"
+                >
+                  <h4
+                    class="font-bold text-slate-900 group-hover:text-brand-600"
+                  >
+                    Visokogorska sekcija
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Alpinizam i visoki usponi.
+                  </p>
+                </a>
+                <a
+                  href="sekcije.html#vodici"
+                  class="p-4 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-sm transition group bg-white"
+                >
+                  <h4
+                    class="font-bold text-slate-900 group-hover:text-brand-600"
+                  >
+                    Sekcija vodiča
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-1">
+                    28 licenciranih vodiča.
+                  </p>
+                </a>
+                <a
+                  href="sekcije.html#stij"
+                  class="p-4 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-sm transition group bg-white"
+                >
+                  <h4
+                    class="font-bold text-slate-900 group-hover:text-brand-600"
+                  >
+                    Svaki tjedan – izlet jedan
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Tjedni rekreativni izleti.
+                  </p>
+                </a>
+                <a
+                  href="sekcije.html#cevo"
+                  class="p-4 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-sm transition group bg-white"
+                >
+                  <h4
+                    class="font-bold text-slate-900 group-hover:text-brand-600"
+                  >
+                    Planinarska sekcija "Čevo"
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Rad s djecom i mladima.
+                  </p>
+                </a>
+                <a
+                  href="sekcije.html#odrzavanje"
+                  class="p-4 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-sm transition group bg-white"
+                >
+                  <h4
+                    class="font-bold text-slate-900 group-hover:text-brand-600"
+                  >
+                    Sekcija za održavanje puteva
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Markiranje i održavanje staza.
+                  </p>
+                </a>
+                <a
+                  href="sekcije.html#informativna"
+                  class="p-4 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-sm transition group bg-white md:col-span-2"
+                >
+                  <h4
+                    class="font-bold text-slate-900 group-hover:text-brand-600"
+                  >
+                    Informativna sekcija
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Komunikacija i mediji društva.
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="o-nama" class="py-24 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-16">
+          <span
+            class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block"
+            >O Nama</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight"
+          >
+            Tradicija i povjerenje
+          </h2>
+          <p class="text-slate-500 text-lg">
+            Najveće smo društvo u regiji s poviješću dugom preko 100 godina.
+          </p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+          <!-- Left: Navigation -->
+          <div class="w-full lg:w-1/4 flex flex-col gap-2">
+            <button
+              onclick="openTab(event, 'about-history', 'about')"
+              class="about-btn active text-left px-6 py-5 rounded-xl transition-all duration-300 border-l-[6px] border-slate-800 bg-slate-100 shadow-md"
+            >
+              <span class="block font-bold text-slate-900 text-sm"
+                >Povijest</span
+              >
+              <span class="block text-xs font-medium text-slate-600 mt-1"
+                >Od 1919. godine</span
+              >
+            </button>
+            <button
+              onclick="openTab(event, 'about-lodge', 'about')"
+              class="about-btn text-left px-6 py-5 rounded-xl transition-all duration-300 border-l-[6px] border-transparent hover:bg-white hover:shadow-sm hover:border-slate-300"
+            >
+              <span class="block font-bold text-slate-600 text-sm"
+                >Naši Objekti</span
+              >
+              <span class="block text-xs font-medium text-slate-400 mt-1"
+                >Kuća na Grebenu</span
+              >
+            </button>
+            <button
+              onclick="openTab(event, 'about-team', 'about')"
+              class="about-btn text-left px-6 py-5 rounded-xl transition-all duration-300 border-l-[6px] border-transparent hover:bg-white hover:shadow-sm hover:border-slate-300"
+            >
+              <span class="block font-bold text-slate-600 text-sm"
+                >Vodstvo</span
+              >
+              <span class="block text-xs font-medium text-slate-400 mt-1"
+                >Izvršni odbor</span
+              >
+            </button>
+          </div>
+
+          <!-- Right: Content -->
+          <div class="w-full lg:w-3/4 min-h-[400px]">
+            <!-- PANEL: History -->
+            <div id="about-history" class="tab-panel active">
+              <div class="flex flex-col md:flex-row gap-10 items-start">
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold text-slate-900 mb-4">
+                    Više od četiri desetljeća planinarenja.
+                  </h3>
+                  <p class="text-slate-600 leading-relaxed mb-6">
+                    HPD MIV Varaždin osnovano je davne 1980. godine. Kroz
+                    povijest smo izrasli u najveću planinarsku organizaciju u Hrvatskoj koja okuplja
+                    generacije zaljubljenika u prirodu.
+                  </p>
+                  <div class="flex gap-8 mb-8 border-l-2 border-brand-200 pl-6">
+                    <div>
+                      <div class="text-2xl font-bold text-brand-600">1980.</div>
+                      <div
+                        class="text-[10px] font-bold uppercase text-slate-400"
+                      >
+                        Osnovano
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-2xl font-bold text-brand-600">1770+</div>
+                      <div
+                        class="text-[10px] font-bold uppercase text-slate-400"
+                      >
+                        Članova
+                      </div>
+                    </div>
+                  </div>
+                  <a
+                    href="povijest.html"
+                    class="text-sm font-bold text-slate-900 hover:text-brand-600 hover:underline"
+                  >
+                    Pročitaj punu povijest &rarr;
+                  </a>
+                </div>
+                <!-- Smaller Image -->
+                <div class="w-full md:w-5/12">
+                  <img
+                    src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=400&q=80"
+                    class="rounded-xl shadow-md w-full h-48 object-cover grayscale hover:grayscale-0 transition duration-500"
+                  />
+                  <p class="text-[10px] text-center text-slate-400 mt-2">
+                    Arhivska fotografija
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL: Lodge -->
+            <div id="about-lodge" class="tab-panel">
+              <div class="flex flex-col md:flex-row gap-8">
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold text-slate-900 mb-2">
+                    Planinarska kuća "Greben"
+                  </h3>
+                  <p class="text-sm font-bold text-brand-600 uppercase mb-4">
+                    Grebengrad
+                  </p>
+                  <p class="text-slate-600 leading-relaxed mb-6">
+                    Naš dom otvoren je vikendom i praznicima. Nudimo smještaj,
+                    topli obrok i nezaboravna druženja.
+                  </p>
+                </div>
+                <img
+                  src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=400&q=80"
+                  class="w-full md:w-1/2 h-56 rounded-xl object-cover shadow-md"
+                />
+              </div>
+            </div>
+
+            <!-- PANEL: Leadership -->
+            <div id="about-team" class="tab-panel">
+              <h3 class="text-2xl font-bold text-slate-900 mb-6">
+                Izvršni odbor
+              </h3>
+              <p class="text-slate-600 mb-8 max-w-2xl">
+                Društvom upravljaju volonteri izabrani na skupštini. Ovdje
+                možete vidjeti tko trenutno vodi društvo.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div
+                  class="bg-white p-4 rounded-xl border border-slate-100 flex items-center gap-4 shadow-sm"
+                >
+                  <div
+                    class="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center font-bold text-white"
+                  >
+                    SS
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-900 text-sm">
+                      Srećko Sekulić
+                    </div>
+                    <div class="text-[10px] text-brand-600 font-bold uppercase">
+                      Predsjednik
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-white p-4 rounded-xl border border-slate-100 flex items-center gap-4 shadow-sm"
+                >
+                  <div
+                    class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-600"
+                  >
+                    MN
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-900 text-sm">
+                      Marija Njegovec
+                    </div>
+                    <div class="text-[10px] text-brand-600 font-bold uppercase">
+                      Tajnica
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <a
+                  href="vodstvo.html"
+                  class="text-sm font-bold text-slate-900 hover:text-brand-600 hover:underline"
+                >
+                  Vidi cijeli popis vodstva &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="novosti" class="relative py-24 bg-white overflow-hidden  z-0">
+      
+<div class="container mx-auto px-6 relative z-10">
+        <!-- Section Header -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
+        >
+          <div class="max-w-2xl">
+            <span
+              class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block"
+              >Blog & Obavijesti</span
+            >
+            <h2
+              class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight"
+            >
+              Novosti iz društva
+            </h2>
+            <p class="text-slate-500 text-lg leading-relaxed">
+              Budite u toku s najnovijim informacijama, promjenama radnog
+              vremena i izvještajima s terena.
+            </p>
+          </div>
+
+          <!-- Archive Link -->
+          <a
+            href="#"
+            class="group inline-flex items-center gap-2 font-bold text-slate-900 hover:text-brand-600 transition pb-1 border-b border-slate-200 hover:border-brand-600"
+          >
+            <span>Arhiva novosti</span>
+            <svg
+              class="w-4 h-4 transform group-hover:translate-x-1 transition"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              ></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- News Grid -->
+        <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Cards will be dynamically rendered from news-data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-16">
+          <span
+            class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block"
+            >Podrška</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight"
+          >
+            Česta pitanja
+          </h2>
+          <p class="text-slate-500 text-lg">
+            Pronađite odgovore na najčešća pitanja o učlanjenju, izletima i
+            opremi.
+          </p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+          <!-- Left: Category Navigation & Support Box -->
+          <div class="w-full lg:w-1/4 flex flex-col gap-8">
+            <!-- Navigation -->
+            <div class="flex flex-col gap-2">
+              <button
+                onclick="switchCategory(event, 'cat-general')"
+                class="faq-cat-btn active text-left px-6 py-4 rounded-xl transition-all duration-300 border-l-[6px] border-slate-800 bg-slate-100 shadow-md"
+              >
+                <span class="block font-bold text-slate-900 text-sm"
+                  >Općenito</span
+                >
+              </button>
+              <button
+                onclick="switchCategory(event, 'cat-membership')"
+                class="faq-cat-btn text-left px-6 py-4 rounded-xl transition-all duration-300 border-l-[6px] border-transparent hover:bg-slate-100 hover:border-slate-300"
+              >
+                <span class="block font-bold text-slate-600 text-sm"
+                  >Članstvo & Upisi</span
+                >
+              </button>
+              <button
+                onclick="switchCategory(event, 'cat-trips')"
+                class="faq-cat-btn text-left px-6 py-4 rounded-xl transition-all duration-300 border-l-[6px] border-transparent hover:bg-slate-100 hover:border-slate-300"
+              >
+                <span class="block font-bold text-slate-600 text-sm"
+                  >Izleti & Prijevoz</span
+                >
+              </button>
+              <button
+                onclick="switchCategory(event, 'cat-gear')"
+                class="faq-cat-btn text-left px-6 py-4 rounded-xl transition-all duration-300 border-l-[6px] border-transparent hover:bg-slate-100 hover:border-slate-300"
+              >
+                <span class="block font-bold text-slate-600 text-sm"
+                  >Oprema</span
+                >
+              </button>
+            </div>
+
+            <!-- Help Box -->
+          </div>
+
+          <!-- Right: Accordion Content -->
+          <div class="w-full lg:w-3/4 min-h-[300px]">
+            <!-- CATEGORY 1: General -->
+            <div id="cat-general" class="faq-panel active space-y-4">
+              <h3 class="text-xl font-bold text-slate-900 mb-6 hidden lg:block">
+                Opća pitanja
+              </h3>
+
+              <!-- Q1 -->
+              <div
+                class="accordion-item border border-slate-200 rounded-xl overflow-hidden"
+              >
+                <button
+                  onclick="toggleAccordion(this)"
+                  class="w-full flex justify-between items-center p-5 bg-white hover:bg-slate-50 text-left group transition"
+                >
+                  <span
+                    class="font-bold text-slate-800 group-hover:text-brand-600 transition"
+                    >Gdje se nalazi ured društva?</span
+                  >
+                  <span
+                    class="accordion-icon text-slate-400 group-hover:text-brand-600"
+                    ><svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path></svg
+                  ></span>
+                </button>
+                <div
+                  class="accordion-content bg-slate-50 border-t border-slate-100"
+                >
+                  <p class="p-5 text-slate-600 text-sm leading-relaxed">
+                    Naša adresa je Trakošćanska 24 u Varaždinu. Nalazimo se u
+                    prizemlju stambene zgrade. Ispred zgrade dostupan je javni
+                    parking.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Q2 -->
+              <div
+                class="accordion-item border border-slate-200 rounded-xl overflow-hidden"
+              >
+                <button
+                  onclick="toggleAccordion(this)"
+                  class="w-full flex justify-between items-center p-5 bg-white hover:bg-slate-50 text-left group transition"
+                >
+                  <span
+                    class="font-bold text-slate-800 group-hover:text-brand-600 transition"
+                    >Koje je radno vrijeme ureda?</span
+                  >
+                  <span
+                    class="accordion-icon text-slate-400 group-hover:text-brand-600"
+                    ><svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path></svg
+                  ></span>
+                </button>
+                <div
+                  class="accordion-content bg-slate-50 border-t border-slate-100"
+                >
+                  <p class="p-5 text-slate-600 text-sm leading-relaxed">
+                    Ured je otvoren za članove i posjetitelje isključivo
+                    <strong>srijedom od 18:00 do 20:00 sati</strong>. U tom
+                    terminu možete uplatiti članarinu, prijaviti se na izlete
+                    ili kupiti opremu.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CATEGORY 2: Membership -->
+            <div id="cat-membership" class="faq-panel space-y-4">
+              <h3 class="text-xl font-bold text-slate-900 mb-6 hidden lg:block">
+                Članstvo i pogodnosti
+              </h3>
+
+              <!-- Q1 -->
+              <div
+                class="accordion-item border border-slate-200 rounded-xl overflow-hidden"
+              >
+                <button
+                  onclick="toggleAccordion(this)"
+                  class="w-full flex justify-between items-center p-5 bg-white hover:bg-slate-50 text-left group transition"
+                >
+                  <span
+                    class="font-bold text-slate-800 group-hover:text-brand-600 transition"
+                    >Kako se mogu učlaniti?</span
+                  >
+                  <span
+                    class="accordion-icon text-slate-400 group-hover:text-brand-600"
+                    ><svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path></svg
+                  ></span>
+                </button>
+                <div
+                  class="accordion-content bg-slate-50 border-t border-slate-100"
+                >
+                  <p class="p-5 text-slate-600 text-sm leading-relaxed">
+                    Učlaniti se možete dolaskom u ured srijedom ili online
+                    ispunjavanjem pristupnice na našoj web stranici. Nakon
+                    uplate članarine, iskaznicu podižete u uredu.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Q2 -->
+              <div
+                class="accordion-item border border-slate-200 rounded-xl overflow-hidden"
+              >
+                <button
+                  onclick="toggleAccordion(this)"
+                  class="w-full flex justify-between items-center p-5 bg-white hover:bg-slate-50 text-left group transition"
+                >
+                  <span
+                    class="font-bold text-slate-800 group-hover:text-brand-600 transition"
+                    >Što je uključeno u članarinu?</span
+                  >
+                  <span
+                    class="accordion-icon text-slate-400 group-hover:text-brand-600"
+                    ><svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path></svg
+                  ></span>
+                </button>
+                <div
+                  class="accordion-content bg-slate-50 border-t border-slate-100"
+                >
+                  <p class="p-5 text-slate-600 text-sm leading-relaxed">
+                    Članarina uključuje markicu HPS-a, osiguranje od nezgode na
+                    planini, 50% popusta na noćenja u planinarskim domovima u RH
+                    i Sloveniji, te pravo sudjelovanja na društvenim izletima.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CATEGORY 3: Trips -->
+            <div id="cat-trips" class="faq-panel space-y-4">
+              <h3 class="text-xl font-bold text-slate-900 mb-6 hidden lg:block">
+                Izleti i organizacija
+              </h3>
+
+              <!-- Q1 -->
+              <div
+                class="accordion-item border border-slate-200 rounded-xl overflow-hidden"
+              >
+                <button
+                  onclick="toggleAccordion(this)"
+                  class="w-full flex justify-between items-center p-5 bg-white hover:bg-slate-50 text-left group transition"
+                >
+                  <span
+                    class="font-bold text-slate-800 group-hover:text-brand-600 transition"
+                    >Mogu li na izlet kao gost (nečlan)?</span
+                  >
+                  <span
+                    class="accordion-icon text-slate-400 group-hover:text-brand-600"
+                    ><svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path></svg
+                  ></span>
+                </button>
+                <div
+                  class="accordion-content bg-slate-50 border-t border-slate-100"
+                >
+                  <p class="p-5 text-slate-600 text-sm leading-relaxed">
+                    Da, gosti su dobrodošli na izletima otvorenog tipa (obično
+                    K1/T1)! Gosti plaćaju nešto višu cijenu prijevoza i nemaju
+                    prvenstvo prijave ako je autobus popunjen. Za teže izlete
+                    (Visokogorci) članstvo je obavezno.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Q2 -->
+              <div
+                class="accordion-item border border-slate-200 rounded-xl overflow-hidden"
+              >
+                <button
+                  onclick="toggleAccordion(this)"
+                  class="w-full flex justify-between items-center p-5 bg-white hover:bg-slate-50 text-left group transition"
+                >
+                  <span
+                    class="font-bold text-slate-800 group-hover:text-brand-600 transition"
+                    >Povrat novca u slučaju otkazivanja?</span
+                  >
+                  <span
+                    class="accordion-icon text-slate-400 group-hover:text-brand-600"
+                    ><svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path></svg
+                  ></span>
+                </button>
+                <div
+                  class="accordion-content bg-slate-50 border-t border-slate-100"
+                >
+                  <p class="p-5 text-slate-600 text-sm leading-relaxed">
+                    Ako društvo otkaže izlet (npr. loše vrijeme), vraćamo puni
+                    iznos ili ga prebacujemo za idući izlet. Ako vi otkažete
+                    izlet unutar 48h prije polaska, povrat novca za autobus
+                    nažalost nije moguć osim ako se nađe zamjena.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CATEGORY 4: Gear -->
+            <div id="cat-gear" class="faq-panel space-y-4">
+              <h3 class="text-xl font-bold text-slate-900 mb-6 hidden lg:block">
+                Oprema
+              </h3>
+
+              <!-- Q1 -->
+              <div
+                class="accordion-item border border-slate-200 rounded-xl overflow-hidden"
+              >
+                <button
+                  onclick="toggleAccordion(this)"
+                  class="w-full flex justify-between items-center p-5 bg-white hover:bg-slate-50 text-left group transition"
+                >
+                  <span
+                    class="font-bold text-slate-800 group-hover:text-brand-600 transition"
+                    >Što mi treba za prvi izlet?</span
+                  >
+                  <span
+                    class="accordion-icon text-slate-400 group-hover:text-brand-600"
+                    ><svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path></svg
+                  ></span>
+                </button>
+                <div
+                  class="accordion-content bg-slate-50 border-t border-slate-100"
+                >
+                  <p class="p-5 text-slate-600 text-sm leading-relaxed">
+                    Najvažnije su čvrste gojzerice (ne tenisice!). Uz to: ruksak
+                    (20-30L), voda (min 1.5L), kabanica, slojevita odjeća i
+                    hrana. Štapovi za hodanje su preporučljivi.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div
+          class="bg-slate-900 rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl"
+        >
+          <!-- Background Decorations (Subtle Glows) -->
+          <div
+            class="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          ></div>
+          <div
+            class="absolute bottom-0 right-0 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 pointer-events-none"
+          ></div>
+
+          <!-- Content -->
+          <div class="relative z-10 max-w-3xl mx-auto">
+            <h2
+              class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight leading-tight"
+            >
+              Spremni za
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400"
+                >prvi korak?</span
+              >
+            </h2>
+
+            <p
+              class="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto"
+            >
+              Planine zovu. Pridružite se zajednici od 1200+ članova i provedite
+              vikend tamo gdje je zrak najčišći.
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+              <a href="pristupnica.html"
+                class="bg-white text-slate-900 text-lg px-10 py-4 rounded-xl font-bold shadow-glow hover:bg-slate-50 hover:-translate-y-1 transition transform duration-200"
+              >
+                Učlani se online
+            </a>
+              <a
+                href="#izleti"
+                class="text-white border border-slate-600 text-lg px-10 py-4 rounded-xl font-bold hover:bg-white/10 hover:border-white transition"
+              >
+                Pogledaj kalendar
+              </a>
+            </div>
+
+            <!-- The Micro-Copy -->
+            <p
+              class="flex items-center justify-center gap-2 text-sm text-slate-400 font-medium opacity-80"
+            >
+              <svg
+                class="w-4 h-4 text-green-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              Potrebno je manje od 2 minute.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Footer (loaded dynamically) -->
+    <div id="site-footer"></div>
+
+    <!-- Shared Components -->
+    <script src="shared-components.js"></script>
+    
+    <!-- Trips Data -->
+    <script src="trips-data.js"></script>
+    
+    <!-- Dynamic Trip Cards Rendering -->
+    <script>
+      function renderTripsGrid() {
+        const grid = document.getElementById('trips-grid');
+        if (!grid || typeof MOCK_TRIPS === 'undefined') return;
+
+        grid.innerHTML = MOCK_TRIPS.map(trip => {
+          const dateInfo = trip.tripType === 'multi-day' 
+            ? formatDateShort(trip.startDate) 
+            : formatDateShort(trip.tripDate);
+          
+          const diffColor = getDifficultyColor(trip.fitnessDifficulty);
+          const status = getStatusBadge(trip);
+          const transportIcon = getTransportIcon(trip.transport);
+          
+          const memberPriceText = trip.memberPrice === 0 ? 'Besplatno' : `${trip.memberPrice} €`;
+          const guestPriceText = trip.nonMemberPrice === 0 ? 'Besplatno' : `${trip.nonMemberPrice} €`;
+          
+          const isFull = trip.status === 'full';
+          const cardClass = isFull 
+            ? 'bg-white rounded-2xl overflow-hidden shadow-card opacity-75 hover:opacity-100 transition-all duration-300 flex flex-col h-full border border-transparent group cursor-pointer'
+            : 'bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 flex flex-col h-full border border-transparent hover:border-brand-100 group cursor-pointer';
+          
+          const imageClass = isFull 
+            ? 'relative h-56 overflow-hidden grayscale group-hover:grayscale-0 transition duration-500'
+            : 'relative h-56 overflow-hidden';
+
+          return `
+            <article onclick="window.location='trip.html?id=${trip.id}'" class="${cardClass}">
+              <div class="${imageClass}">
+                <img
+                  src="${trip.image}"
+                  alt="${trip.tripName}"
+                  class="w-full h-full object-cover ${isFull ? '' : 'group-hover:scale-105 transition duration-700'}"
+                />
+                <div class="absolute top-4 left-4 bg-white/95 backdrop-blur rounded-lg px-3 py-1.5 shadow-sm text-center min-w-[60px]">
+                  <div class="text-[10px] font-bold text-slate-400 uppercase leading-none mb-0.5">${dateInfo.month}</div>
+                  <div class="text-xl font-bold text-slate-900 leading-none">${dateInfo.day}</div>
+                </div>
+                <div class="absolute top-4 right-4 ${status.class} text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm uppercase tracking-wide">
+                  ${status.text}
+                </div>
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-wide">
+                    ${transportIcon}
+                    ${trip.transport}
+                  </span>
+                  <span class="inline-flex items-center px-2.5 py-1 rounded bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-wide">
+                    ${trip.section}
+                  </span>
+                  <span class="inline-flex items-center px-2.5 py-1 rounded ${diffColor.bg} ${diffColor.text} text-[10px] font-bold uppercase tracking-wide border ${diffColor.border}">
+                    ${trip.fitnessDifficulty} / ${trip.technicalDifficulty}
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2 leading-tight ${isFull ? '' : 'group-hover:text-brand-600 transition'}">
+                  ${trip.tripName}
+                </h3>
+                <p class="text-sm text-slate-500 line-clamp-2 mb-6">
+                  ${trip.description}
+                </p>
+                <div class="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
+                  <div class="flex gap-6">
+                    <div>
+                      <p class="text-[10px] font-bold ${isFull ? 'text-slate-400' : 'text-brand-600'} uppercase mb-0.5">Članovi</p>
+                      <p class="text-lg font-bold text-slate-900">${memberPriceText}</p>
+                    </div>
+                    <div class="opacity-60">
+                      <p class="text-[10px] font-bold text-slate-400 uppercase mb-0.5">Gosti</p>
+                      <p class="text-lg font-bold text-slate-900">${guestPriceText}</p>
+                    </div>
+                  </div>
+                  <svg class="w-5 h-5 text-slate-300 group-hover:text-brand-600 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+      }
+
+      // FAQ and Tab functions
+      function switchCategory(evt, categoryId) {
+        const panels = document.querySelectorAll(".faq-panel");
+        panels.forEach((p) => p.classList.remove("active"));
+
+        const btns = document.querySelectorAll(".faq-cat-btn");
+        btns.forEach((b) => {
+          b.classList.remove("active", "border-slate-800", "bg-slate-100", "shadow-md");
+          b.classList.add("border-transparent");
+          b.querySelector("span").classList.remove("text-slate-900");
+          b.querySelector("span").classList.add("text-slate-600");
+        });
+
+        document.getElementById(categoryId).classList.add("active");
+
+        const activeBtn = evt.currentTarget;
+        activeBtn.classList.remove("border-transparent");
+        activeBtn.classList.add("active", "border-slate-800", "bg-slate-100", "shadow-md");
+        activeBtn.querySelector("span").classList.remove("text-slate-600");
+        activeBtn.querySelector("span").classList.add("text-slate-900");
+      }
+
+      function toggleAccordion(btn) {
+        const item = btn.closest(".accordion-item");
+        const isActive = item.classList.contains("open");
+        if (!isActive) {
+          item.classList.add("open");
+        } else {
+          item.classList.remove("open");
+        }
+      }
+
+      function openTab(evt, contentId, prefix) {
+        const targetPanel = document.getElementById(contentId);
+        const parentSection = targetPanel.closest("section");
+
+        const localPanels = parentSection.querySelectorAll(".tab-panel");
+        localPanels.forEach((p) => p.classList.remove("active"));
+
+        const btnClass = prefix === "act" ? ".act-btn" : ".about-btn";
+        const localBtns = parentSection.querySelectorAll(btnClass);
+        localBtns.forEach((btn) => {
+          btn.classList.remove("border-slate-800", "bg-slate-100", "shadow-md");
+          btn.classList.add("border-transparent");
+          const titleSpan = btn.querySelector("span:first-child");
+          if (titleSpan) {
+            titleSpan.classList.remove("text-slate-900");
+            titleSpan.classList.add("text-slate-600");
+          }
+          const subtitleSpan = btn.querySelector("span:last-child");
+          if (subtitleSpan) {
+            subtitleSpan.classList.remove("text-slate-600");
+            subtitleSpan.classList.add("text-slate-400");
+          }
+        });
+
+        targetPanel.classList.add("active");
+
+        const activeBtn = evt.currentTarget;
+        activeBtn.classList.remove("border-transparent");
+        activeBtn.classList.add("border-slate-800", "bg-slate-100", "shadow-md");
+        const titleSpan = activeBtn.querySelector("span:first-child");
+        if (titleSpan) {
+          titleSpan.classList.remove("text-slate-600");
+          titleSpan.classList.add("text-slate-900");
+        }
+        const subtitleSpan = activeBtn.querySelector("span:last-child");
+        if (subtitleSpan) {
+          subtitleSpan.classList.remove("text-slate-400");
+          subtitleSpan.classList.add("text-slate-600");
+        }
+      }
+    </script>
+    
+    <!-- News Data -->
+    <script src="news-data.js"></script>
+    
+    <!-- Dynamic News Cards Rendering -->
+    <script>
+      function renderNewsGrid() {
+        const grid = document.getElementById('news-grid');
+        if (!grid || typeof MOCK_NEWS === 'undefined') return;
+
+        grid.innerHTML = MOCK_NEWS.map(news => {
+          const newsType = getNewsType(news.type);
+          const formattedDate = formatNewsDate(news.date);
+
+          return `
+            <a
+              href="news.html?id=${news.id}"
+              class="group flex flex-col h-full bg-white rounded-2xl p-8 border border-slate-100 hover:border-brand-200 hover:shadow-hover transition-all duration-300 relative overflow-hidden"
+            >
+              <!-- Top Line -->
+              <div class="flex items-center justify-between mb-6">
+                <time class="text-xs font-bold text-slate-400 uppercase tracking-wide">${formattedDate}</time>
+                <span class="${newsType.bgClass} ${newsType.textClass} text-[10px] font-bold px-2.5 py-1 rounded border ${newsType.borderClass} uppercase tracking-wide">${newsType.name}</span>
+              </div>
+
+              <!-- Content -->
+              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition leading-tight">
+                ${news.title}
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
+                ${news.excerpt}
+              </p>
+
+              <!-- Bottom Link -->
+              <div class="mt-auto flex items-center gap-2 text-sm font-bold text-slate-900 group-hover:text-brand-600 transition">
+                Pročitaj detalje
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </div>
+            </a>
+          `;
+        }).join('');
+      }
+    </script>
+
+    <script>
+      // Initialize shared components
+      document.addEventListener('DOMContentLoaded', function() {
+        initSharedComponents('home');
+        
+        // Render trips grid
+        renderTripsGrid();
+        
+        // Render news grid
+        renderNewsGrid();
+
+        // Fade-in animation for sections
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,706 @@
+﻿<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Pristupnica - HPD MIV Varaždin</title>
+    <meta
+      name="description"
+      content="Ispunite online pristupnicu za članstvo u HPD MIV Varaždin."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            colors: {
+              brand: {
+                50: "#DCE8E1",
+                100: "#2D4F39",
+                600: "#2d4f39",
+                700: "#B71C1C",
+              },
+              slate: { 850: "#1e293b", 900: "#0f172a" },
+            },
+            boxShadow: {
+              soft: "0 20px 40px -15px rgba(0, 0, 0, 0.05)",
+              card: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)",
+              hover: "0 20px 40px -5px rgba(0, 0, 0, 0.1)",
+              mega: "0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.04)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Mega Menu */
+      .mega-menu {
+        transition: all 0.2s ease-in-out;
+        transform-origin: top;
+      }
+      .mega-menu.hidden {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        display: block;
+        pointer-events: none;
+      }
+      .mega-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* Fade in */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Form styling */
+      .form-input {
+        transition: all 0.2s ease;
+      }
+      .form-input:focus {
+        border-color: #2d4f39;
+        box-shadow: 0 0 0 3px rgba(45, 79, 57, 0.1);
+      }
+
+      /* Radio/Checkbox styling */
+      .form-radio:checked,
+      .form-checkbox:checked {
+        background-color: #2d4f39;
+        border-color: #2d4f39;
+      }
+
+      /* Step indicator */
+      .step-item.active .step-number {
+        background-color: #2d4f39;
+        color: white;
+      }
+      .step-item.completed .step-number {
+        background-color: #2d4f39;
+        color: white;
+      }
+      .step-item.completed .step-number svg {
+        display: block;
+      }
+      .step-item.completed .step-number span {
+        display: none;
+      }
+
+      /* Type card selection */
+      .type-card {
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+      .type-card:hover {
+        border-color: #2d4f39;
+        transform: translateY(-2px);
+      }
+      .type-card.selected {
+        border-color: #2d4f39;
+        background-color: rgba(45, 79, 57, 0.05);
+      }
+      .type-card.selected .type-check {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50">
+    <!-- Header (loaded dynamically) -->
+    <div id="site-header"></div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="py-12">
+      <div class="container mx-auto px-6">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <nav class="mb-6" aria-label="Breadcrumb">
+            <ol class="flex items-center justify-center gap-2 text-sm">
+              <li><a href="index_sample.html" class="text-slate-500 hover:text-brand-600 transition">Početna</a></li>
+              <li class="text-slate-400"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></li>
+              <li class="text-slate-900 font-medium">Pristupnica</li>
+            </ol>
+          </nav>
+          <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Online Pristupnica</h1>
+          <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+            Ispunite pristupnicu online i pridružite se najvećoj planinarskoj udruzi u Hrvatskoj.
+          </p>
+        </div>
+
+        <!-- Important Notice -->
+        <div class="max-w-3xl mx-auto mb-10">
+          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-amber-900 mb-2">Važne napomene</h4>
+                <ul class="text-amber-800 text-sm leading-relaxed space-y-1">
+                  <li>• <strong>Direktno plaćanje</strong> moguće je na sastanku svake srijede od 18-19h</li>
+                  <li>• Nakon uplate internet bankarstvom pošaljite <strong>dokaz o uplati</strong> na: <a href="mailto:hpdmiv@gmail.com" class="underline">hpdmiv@gmail.com</a> s naznakom <em>"IME PREZIME, NOVI ČLAN"</em></li>
+                  <li>• Člansku iskaznicu možete podići <strong>svake srijede od 18-19h</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-white rounded-2xl shadow-card border border-slate-100 overflow-hidden">
+            
+            <!-- Step Indicator -->
+            <div class="bg-slate-50 px-8 py-6 border-b border-slate-100">
+              <div class="flex items-center justify-between max-w-md mx-auto">
+                <!-- Step 1 -->
+                <div class="step-item active flex flex-col items-center" data-step="1">
+                  <div class="step-number w-10 h-10 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-sm mb-2">
+                    <span>1</span>
+                    <svg class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Vrsta</span>
+                </div>
+                <!-- Line -->
+                <div class="flex-1 h-0.5 bg-slate-200 mx-4 step-line" data-line="1"></div>
+                <!-- Step 2 -->
+                <div class="step-item flex flex-col items-center" data-step="2">
+                  <div class="step-number w-10 h-10 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-sm mb-2">
+                    <span>2</span>
+                    <svg class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Podaci</span>
+                </div>
+                <!-- Line -->
+                <div class="flex-1 h-0.5 bg-slate-200 mx-4 step-line" data-line="2"></div>
+                <!-- Step 3 -->
+                <div class="step-item flex flex-col items-center" data-step="3">
+                  <div class="step-number w-10 h-10 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-sm mb-2">
+                    <span>3</span>
+                    <svg class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Privola</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Steps -->
+            <form id="membership-form" class="p-8">
+              
+              <!-- STEP 1: Type Selection -->
+              <div id="step-1" class="step-content">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Odaberite vrstu pristupnice</h2>
+                <p class="text-slate-500 mb-8">Izaberite opciju koja odgovara vašoj situaciji.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <!-- Adult -->
+                  <div class="type-card rounded-xl border-2 border-slate-200 p-6 text-center" data-type="adult" onclick="selectType('adult')">
+                    <div class="type-check hidden w-6 h-6 bg-brand-600 rounded-full items-center justify-center absolute top-3 right-3">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <div class="w-14 h-14 mx-auto mb-4 bg-brand-600/10 rounded-xl flex items-center justify-center">
+                      <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                      </svg>
+                    </div>
+                    <h3 class="font-bold text-slate-900 mb-1">Odrasli</h3>
+                    <p class="text-xs text-slate-500">Zaposleni, nezaposleni, umirovljenici</p>
+                  </div>
+
+                  <!-- Youth -->
+                  <div class="type-card rounded-xl border-2 border-slate-200 p-6 text-center relative" data-type="youth" onclick="selectType('youth')">
+                    <div class="type-check hidden w-6 h-6 bg-brand-600 rounded-full items-center justify-center absolute top-3 right-3">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-600/10 rounded-xl flex items-center justify-center">
+                      <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                      </svg>
+                    </div>
+                    <h3 class="font-bold text-slate-900 mb-1">Djeca / Mladi</h3>
+                    <p class="text-xs text-slate-500">Djeca, učenici, studenti</p>
+                  </div>
+
+                  <!-- Renewal -->
+                  <div class="type-card rounded-xl border-2 border-slate-200 p-6 text-center relative" data-type="renewal" onclick="selectType('renewal')">
+                    <div class="type-check hidden w-6 h-6 bg-brand-600 rounded-full items-center justify-center absolute top-3 right-3">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <div class="w-14 h-14 mx-auto mb-4 bg-green-600/10 rounded-xl flex items-center justify-center">
+                      <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                      </svg>
+                    </div>
+                    <h3 class="font-bold text-slate-900 mb-1">Produženje</h3>
+                    <p class="text-xs text-slate-500">Postojeći članovi</p>
+                  </div>
+                </div>
+
+                <!-- Next Button -->
+                <div class="mt-8 flex justify-end">
+                  <button type="button" onclick="nextStep()" id="step1-next" class="bg-brand-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-brand-700 transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    Dalje
+                    <svg class="w-4 h-4 inline ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 2: Personal Data -->
+              <div id="step-2" class="step-content hidden">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Osobni podaci</h2>
+                <p class="text-slate-500 mb-8">Ispunite svoje podatke za članstvo.</p>
+
+                <!-- Adult Form -->
+                <div id="form-adult" class="form-type hidden space-y-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Ime i prezime <span class="text-red-500">*</span></label>
+                      <input type="text" name="fullName" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="Pero Perić">
+                    </div>
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">OIB <span class="text-red-500">*</span></label>
+                      <input type="text" name="oib" required pattern="[0-9]{11}" maxlength="11" class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="12345678901">
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Datum rođenja <span class="text-red-500">*</span></label>
+                      <input type="date" name="birthDate" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none">
+                    </div>
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Mjesto rođenja <span class="text-red-500">*</span></label>
+                      <input type="text" name="birthPlace" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="Varaždin">
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Adresa <span class="text-red-500">*</span></label>
+                    <input type="text" name="address" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="Ulica i kućni broj, poštanski broj, grad">
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Mobitel <span class="text-red-500">*</span></label>
+                      <input type="tel" name="phone" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="+385 91 234 5678">
+                    </div>
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Email <span class="text-red-500">*</span></label>
+                      <input type="email" name="email" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="email@primjer.hr">
+                    </div>
+                  </div>
+
+                  <!-- Category -->
+                  <div class="pt-4 border-t border-slate-100">
+                    <label class="block text-sm font-bold text-slate-700 mb-4">Kategorija članstva <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="category" value="employed" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Zaposlen</span>
+                      </label>
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="category" value="unemployed" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Nezaposlen</span>
+                      </label>
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="category" value="retired" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Umirovljenik</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Youth Form -->
+                <div id="form-youth" class="form-type hidden space-y-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Ime i prezime djeteta <span class="text-red-500">*</span></label>
+                      <input type="text" name="youthFullName" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="Ime Prezime">
+                    </div>
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">OIB djeteta <span class="text-red-500">*</span></label>
+                      <input type="text" name="youthOib" required pattern="[0-9]{11}" maxlength="11" class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="12345678901">
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Datum rođenja <span class="text-red-500">*</span></label>
+                      <input type="date" name="youthBirthDate" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none">
+                    </div>
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Mjesto rođenja <span class="text-red-500">*</span></label>
+                      <input type="text" name="youthBirthPlace" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="Varaždin">
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Adresa <span class="text-red-500">*</span></label>
+                    <input type="text" name="youthAddress" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="Ulica i kućni broj, poštanski broj, grad">
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Mobitel <span class="text-red-500">*</span></label>
+                      <input type="tel" name="youthPhone" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="+385 91 234 5678">
+                    </div>
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Email <span class="text-red-500">*</span></label>
+                      <input type="email" name="youthEmail" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="email@primjer.hr">
+                    </div>
+                  </div>
+
+                  <!-- Youth Category -->
+                  <div class="pt-4 border-t border-slate-100">
+                    <label class="block text-sm font-bold text-slate-700 mb-4">Kategorija <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="youthCategory" value="child" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Dijete</span>
+                      </label>
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="youthCategory" value="student_school" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Učenik</span>
+                      </label>
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="youthCategory" value="student_uni" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Student</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Climber -->
+                  <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-4">Penjač</label>
+                    <div class="flex gap-4">
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="climber" value="yes" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Da</span>
+                      </label>
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="climber" value="no" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Ne</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Parent/Guardian -->
+                  <div class="pt-4 border-t border-slate-100">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4">Podaci roditelja/skrbnika</h3>
+                    <div class="space-y-4">
+                      <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Ime i prezime roditelja/skrbnika <span class="text-red-500">*</span></label>
+                        <input type="text" name="parentName" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="Ime Prezime">
+                      </div>
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label class="block text-sm font-bold text-slate-700 mb-2">OIB roditelja/skrbnika <span class="text-red-500">*</span></label>
+                          <input type="text" name="parentOib" required pattern="[0-9]{11}" maxlength="11" class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="12345678901">
+                        </div>
+                        <div>
+                          <label class="block text-sm font-bold text-slate-700 mb-2">Adresa roditelja/skrbnika <span class="text-red-500">*</span></label>
+                          <input type="text" name="parentAddress" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="Ulica, broj, grad">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Renewal Form -->
+                <div id="form-renewal" class="form-type hidden space-y-6">
+                  <div class="bg-green-50 border border-green-200 rounded-xl p-4 mb-6">
+                    <p class="text-green-800 text-sm">
+                      <strong>Produženje članstva</strong> – ispunite samo osnovne podatke za obnovu vaše članarine.
+                    </p>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Ime i prezime <span class="text-red-500">*</span></label>
+                      <input type="text" name="renewalName" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="Pero Perić">
+                    </div>
+                    <div>
+                      <label class="block text-sm font-bold text-slate-700 mb-2">Broj iskaznice <span class="text-red-500">*</span></label>
+                      <input type="text" name="cardNumber" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="12345">
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Email <span class="text-red-500">*</span></label>
+                    <input type="email" name="renewalEmail" required class="form-input w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none" placeholder="email@primjer.hr">
+                  </div>
+
+                  <!-- Category for renewal -->
+                  <div class="pt-4 border-t border-slate-100">
+                    <label class="block text-sm font-bold text-slate-700 mb-4">Kategorija članstva <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="renewalCategory" value="employed" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Zaposlen</span>
+                      </label>
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="renewalCategory" value="unemployed" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Nezaposlen</span>
+                      </label>
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="renewalCategory" value="retired" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Umirovljenik</span>
+                      </label>
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="renewalCategory" value="child" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Dijete</span>
+                      </label>
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="renewalCategory" value="student_school" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Učenik</span>
+                      </label>
+                      <label class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 hover:border-brand-600 cursor-pointer transition">
+                        <input type="radio" name="renewalCategory" value="student_uni" class="form-radio w-5 h-5 border-2 border-slate-300 rounded-full accent-brand-600">
+                        <span class="text-sm font-medium text-slate-700">Student</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="mt-8 flex justify-between">
+                  <button type="button" onclick="prevStep()" class="text-slate-600 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition">
+                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    Natrag
+                  </button>
+                  <button type="button" onclick="nextStep()" class="bg-brand-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-brand-700 transition">
+                    Dalje
+                    <svg class="w-4 h-4 inline ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 3: Consent -->
+              <div id="step-3" class="step-content hidden">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Privola i izjava</h2>
+                <p class="text-slate-500 mb-8">Pročitajte i prihvatite uvjete članstva.</p>
+
+                <!-- GDPR Consent -->
+                <div class="bg-slate-50 rounded-xl p-6 mb-6">
+                  <h3 class="font-bold text-slate-900 mb-3">Privola za prikupljanje i obradu osobnih podataka</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                    Podaci iz ovog obrasca prikupljaju se i obrađuju u svrhu evidentiranja članstva sukladno Zakonu o udrugama i Statutu HPD "MIV" Varaždin. 
+                    Podaci o adresi stanovanja, elektroničkoj pošti i broju mobitela mogu se koristiti isključivo u svrhu informiranja članova o aktivnostima planinarske udruge. 
+                    Planinarska udruga se obvezuje prikupljene podatke koristiti isključivo za navedene svrhe te ih čuvati od trećih osoba.
+                  </p>
+                  <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" name="gdprConsent" required class="form-checkbox w-5 h-5 border-2 border-slate-300 rounded mt-0.5 accent-brand-600">
+                    <span class="text-sm font-medium text-slate-700">
+                      Dajem privolu planinarskoj udruzi da koristi moje osobne podatke iz ovog obrasca za navedene svrhe. <span class="text-red-500">*</span>
+                    </span>
+                  </label>
+                </div>
+
+                <!-- Membership Terms -->
+                <div class="bg-slate-50 rounded-xl p-6 mb-6">
+                  <h3 class="font-bold text-slate-900 mb-3">Izjava o pristupanju</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                    Pristupanjem u planinarsku udrugu obvezujem se pridržavati odredbi Statuta te pravila i običaja planinarske udruge. 
+                    Izjavljujem da u planinarskim izletima, turama i pohodima i drugim aktivnostima organiziranim u planinarskoj udruzi sudjelujem na vlastitu odgovornost.
+                  </p>
+                  <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" name="termsConsent" required class="form-checkbox w-5 h-5 border-2 border-slate-300 rounded mt-0.5 accent-brand-600">
+                    <span class="text-sm font-medium text-slate-700">
+                      Prihvaćam uvjete članstva i sudjelujem na vlastitu odgovornost. <span class="text-red-500">*</span>
+                    </span>
+                  </label>
+                </div>
+
+                <!-- Pricing Info -->
+                <div class="bg-brand-600/5 border border-brand-600/20 rounded-xl p-6 mb-6">
+                  <h3 class="font-bold text-brand-600 mb-3">Cijene članarine za 2025. godinu</h3>
+                  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                    <div>
+                      <span class="text-slate-500">Seniori:</span>
+                      <span class="font-bold text-slate-900 ml-2">15 €</span>
+                    </div>
+                    <div>
+                      <span class="text-slate-500">Umirovljenici:</span>
+                      <span class="font-bold text-slate-900 ml-2">10 €</span>
+                    </div>
+                    <div>
+                      <span class="text-slate-500">Mladež:</span>
+                      <span class="font-bold text-slate-900 ml-2">6 €</span>
+                    </div>
+                    <div>
+                      <span class="text-slate-500">Upisnina (odrasli):</span>
+                      <span class="font-bold text-slate-900 ml-2">5 €</span>
+                    </div>
+                    <div>
+                      <span class="text-slate-500">Nova iskaznica:</span>
+                      <span class="font-bold text-slate-900 ml-2">1 €</span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-slate-500 mt-4">Djeca i studenti u razdoblju 1.9.-31.12. plaćaju 4 €</p>
+                </div>
+
+                <!-- Bank Info -->
+                <div class="bg-slate-50 rounded-xl p-6 mb-6">
+                  <h3 class="font-bold text-slate-900 mb-3">Podaci za uplatu</h3>
+                  <div class="text-sm space-y-2">
+                    <p><strong>IBAN:</strong> <code class="bg-white px-2 py-1 rounded border">HR2423400091116025246</code></p>
+                    <p><strong>Model:</strong> HR00</p>
+                    <p><strong>Poziv na broj:</strong> 18-1</p>
+                  </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="mt-8 flex justify-between">
+                  <button type="button" onclick="prevStep()" class="text-slate-600 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition">
+                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    Natrag
+                  </button>
+                  <button type="submit" class="bg-brand-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-brand-700 transition">
+                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Pošalji pristupnicu
+                  </button>
+                </div>
+              </div>
+
+              <!-- Success Message (hidden initially) -->
+              <div id="step-success" class="step-content hidden text-center py-8">
+                <div class="w-20 h-20 mx-auto mb-6 bg-green-100 rounded-full flex items-center justify-center">
+                  <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900 mb-4">Pristupnica poslana!</h2>
+                <p class="text-slate-500 mb-6 max-w-md mx-auto">
+                  Vaša pristupnica je uspješno zaprimljena. Potvrdu ćete dobiti na email adresu.
+                  Ne zaboravite uplatiti članarinu i donijeti dokaz o uplati.
+                </p>
+                <a href="index_sample.html" class="inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-700 transition">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                  Povratak na početnu
+                </a>
+              </div>
+            </form>
+          </div>
+
+          <!-- Back Link -->
+          <div class="text-center mt-8">
+            <a href="index_sample.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-brand-600 transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+              Povratak na početnu
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer (loaded dynamically) -->
+    <div id="site-footer"></div>
+
+    <!-- Shared Components -->
+    <script src="shared-components.js"></script>
+
+    <!-- Page-specific form handling -->
+    <!-- Scripts -->
+    <script>
+      let currentStep = 1;
+      let selectedType = null;
+
+      // Type selection
+      function selectType(type) {
+        selectedType = type;
+        
+        // Update UI
+        document.querySelectorAll('.type-card').forEach(card => {
+          card.classList.remove('selected');
+        });
+        document.querySelector(`.type-card[data-type="${type}"]`).classList.add('selected');
+        
+        // Enable next button
+        document.getElementById('step1-next').disabled = false;
+      }
+
+      // Navigation
+      function nextStep() {
+        if (currentStep === 1 && !selectedType) return;
+        
+        // Hide current step
+        document.getElementById(`step-${currentStep}`).classList.add('hidden');
+        
+        // Mark current step as completed
+        document.querySelector(`.step-item[data-step="${currentStep}"]`).classList.add('completed');
+        document.querySelector(`.step-line[data-line="${currentStep}"]`)?.classList.add('bg-brand-600');
+        
+        // Show next step
+        currentStep++;
+        document.getElementById(`step-${currentStep}`).classList.remove('hidden');
+        document.querySelector(`.step-item[data-step="${currentStep}"]`).classList.add('active');
+        
+        // Show appropriate form on step 2
+        if (currentStep === 2) {
+          document.querySelectorAll('.form-type').forEach(f => f.classList.add('hidden'));
+          document.getElementById(`form-${selectedType}`).classList.remove('hidden');
+        }
+        
+        // Scroll to top
+        window.scrollTo({ top: 200, behavior: 'smooth' });
+      }
+
+      function prevStep() {
+        if (currentStep === 1) return;
+        
+        // Hide current step
+        document.getElementById(`step-${currentStep}`).classList.add('hidden');
+        document.querySelector(`.step-item[data-step="${currentStep}"]`).classList.remove('active');
+        
+        // Show previous step
+        currentStep--;
+        document.getElementById(`step-${currentStep}`).classList.remove('hidden');
+        document.querySelector(`.step-item[data-step="${currentStep}"]`).classList.remove('completed');
+        document.querySelector(`.step-line[data-line="${currentStep}"]`)?.classList.remove('bg-brand-600');
+        
+        // Scroll to top
+        window.scrollTo({ top: 200, behavior: 'smooth' });
+      }
+
+      // Form submission
+      document.getElementById('membership-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Hide step 3
+        document.getElementById('step-3').classList.add('hidden');
+        document.querySelector('.step-item[data-step="3"]').classList.add('completed');
+        
+        // Show success
+        document.getElementById('step-success').classList.remove('hidden');
+        
+        // Hide step indicator
+        document.querySelector('.bg-slate-50.px-8').classList.add('hidden');
+        
+        // Scroll to top
+        window.scrollTo({ top: 200, behavior: 'smooth' });
+        
+        // In a real app, you would send the form data to a server here
+        console.log('Form submitted:', new FormData(this));
+      });
+    </script>
+
+    <script>
+      // Initialize shared components
+      document.addEventListener('DOMContentLoaded', function() {
+        initSharedComponents('pristupnica');
+      });
+    </script>
+  </body>
+</html>

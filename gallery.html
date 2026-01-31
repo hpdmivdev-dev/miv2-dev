@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galerija - HPD MIV Varaždin</title>
+    <meta
+      name="description"
+      content="Pregledajte foto galeriju HPD MIV Varaždin - uspomene s naših planinarskih izleta i događanja."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            colors: {
+              brand: {
+                50: "#DCE8E1",
+                100: "#2D4F39",
+                600: "#2d4f39",
+                700: "#B71C1C",
+              },
+              slate: { 850: "#1e293b", 900: "#0f172a" },
+            },
+            boxShadow: {
+              soft: "0 20px 40px -15px rgba(0, 0, 0, 0.05)",
+              card: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)",
+              hover: "0 20px 40px -5px rgba(0, 0, 0, 0.1)",
+              mega: "0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.04)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Mega Menu */
+      .mega-menu {
+        transition: all 0.2s ease-in-out;
+        transform-origin: top;
+      }
+      .mega-menu.hidden {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        display: block;
+        pointer-events: none;
+      }
+      .mega-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* Fade in */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Album card hover effect */
+      .album-card {
+        transition: all 0.3s ease;
+      }
+      .album-card:hover {
+        transform: translateY(-8px);
+      }
+      .album-card:hover .album-overlay {
+        opacity: 1;
+      }
+      .album-card:hover .album-title {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .album-card:hover .album-image {
+        transform: scale(1.05);
+      }
+
+      .album-overlay {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .album-title {
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .album-image {
+        transition: transform 0.5s ease;
+      }
+
+      /* Timeline styles */
+      .timeline-connector {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        background: linear-gradient(180deg, #2d4f39 0%, #DCE8E1 100%);
+        z-index: 0;
+      }
+
+      .year-marker {
+        position: relative;
+        z-index: 10;
+      }
+
+      .year-marker::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        background: #2d4f39;
+        border-radius: 50%;
+        z-index: -1;
+      }
+
+      /* Year filter button active state */
+      .year-btn.active {
+        background-color: white;
+        color: #0f172a;
+        border-color: white;
+      }
+
+      /* Staggered animation for cards */
+      .album-card {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Masonry-like effect with CSS columns */
+      .gallery-masonry {
+        column-count: 1;
+        column-gap: 1.5rem;
+      }
+
+      @media (min-width: 640px) {
+        .gallery-masonry {
+          column-count: 2;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .gallery-masonry {
+          column-count: 3;
+        }
+      }
+
+      .gallery-masonry .album-card {
+        break-inside: avoid;
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50">
+    <!-- Header (loaded dynamically) -->
+    <div id="site-header"></div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-brand-600 to-brand-100 py-24 overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100" height="100" fill="url(#grid)"/>
+        </svg>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <!-- Breadcrumb (left-aligned) -->
+        <nav class="mb-8" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 text-sm">
+            <li>
+              <a href="index_sample.html" class="text-white/70 hover:text-white transition">Početna</a>
+            </li>
+            <li class="text-white/50">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </li>
+            <li class="text-white font-medium">Galerija</li>
+          </ol>
+        </nav>
+
+        <!-- Title and description (centered) -->
+        <div class="text-center mb-10">
+          <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+            Foto Galerija
+          </h1>
+          <p class="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+            Pregledajte uspomene s naših planinarskih avantura kroz godine.
+          </p>
+        </div>
+
+        <!-- Year Filter Section (centered) -->
+        <div class="flex flex-wrap justify-center gap-3">
+          <button 
+            onclick="filterByYear('all')" 
+            class="year-btn active px-6 py-3 rounded-xl font-bold text-sm bg-white/20 border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 transition-all duration-300"
+            data-year="all"
+          >
+            Sve godine
+          </button>
+          <button 
+            onclick="filterByYear('2025')" 
+            class="year-btn px-6 py-3 rounded-xl font-bold text-sm bg-white/20 border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 transition-all duration-300"
+            data-year="2025"
+          >
+            2025
+          </button>
+          <button 
+            onclick="filterByYear('2024')" 
+            class="year-btn px-6 py-3 rounded-xl font-bold text-sm bg-white/20 border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 transition-all duration-300"
+            data-year="2024"
+          >
+            2024
+          </button>
+          <button 
+            onclick="filterByYear('2023')" 
+            class="year-btn px-6 py-3 rounded-xl font-bold text-sm bg-white/20 border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 transition-all duration-300"
+            data-year="2023"
+          >
+            2023
+          </button>
+          <button 
+            onclick="filterByYear('archive')" 
+            class="year-btn px-6 py-3 rounded-xl font-bold text-sm bg-white/20 border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 transition-all duration-300"
+            data-year="archive"
+          >
+            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+            </svg>
+            Arhiva
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" class="py-12">
+      <div class="container mx-auto px-6">
+
+        <!-- Timeline Gallery -->
+        <div id="gallery-timeline" class="relative">
+          <!-- Albums will be loaded dynamically -->
+        </div>
+
+        <!-- Empty State (hidden by default) -->
+        <div id="empty-state" class="hidden text-center py-16">
+          <div class="w-20 h-20 mx-auto mb-6 bg-slate-100 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Nema albuma za prikaz</h3>
+          <p class="text-slate-500">Odaberite drugu godinu ili pregledajte sve albume.</p>
+        </div>
+
+        <!-- Back Link -->
+        <div class="text-center mt-12">
+          <a href="index_sample.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-brand-600 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Povratak na početnu
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer (loaded dynamically) -->
+    <div id="site-footer"></div>
+
+    <!-- Shared Components -->
+    <script src="shared-components.js"></script>
+    
+    <!-- Gallery Data -->
+    <script src="gallery-data.js"></script>
+
+    <!-- Page-specific gallery logic -->
+    <script>
+      let currentFilter = 'all';
+
+      // Generate album card HTML
+      function generateAlbumCard(album, index) {
+        const formattedDate = formatDateCroatian(album.date);
+        return `
+          <div class="album-card bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-hover cursor-pointer group" 
+               style="animation-delay: ${index * 0.1}s"
+               onclick="handleAlbumClick(${album.id})">
+            <div class="relative overflow-hidden aspect-[4/3]">
+              <img 
+                src="${album.coverImage}" 
+                alt="${album.title}"
+                class="album-image w-full h-full object-cover"
+              />
+              
+              <!-- Overlay on hover -->
+              <div class="album-overlay absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent flex flex-col justify-end p-6">
+                <div class="album-title">
+                  <span class="inline-block px-3 py-1 bg-brand-600 text-white text-xs font-bold rounded-full mb-3">
+                    ${album.photoCount} fotografija
+                  </span>
+                  <h3 class="text-xl font-bold text-white mb-2">${album.title}</h3>
+                  <p class="text-white/80 text-sm">${formattedDate}</p>
+                </div>
+              </div>
+
+              <!-- Year badge (always visible) -->
+              <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-md">
+                <span class="text-xs font-bold text-slate-900">${album.year}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Generate year section with albums
+      function generateYearSection(year, albums) {
+        const isArchive = year === 'archive';
+        const sectionTitle = isArchive ? 'Arhiva' : year;
+        const sectionSubtitle = isArchive ? 'Stariji albumi' : `${albums.length} ${albums.length === 1 ? 'album' : 'albuma'}`;
+
+        let albumCards = '';
+        albums.forEach((album, index) => {
+          albumCards += generateAlbumCard(album, index);
+        });
+
+        return `
+          <div class="year-section mb-16 fade-in-section">
+            <!-- Year Header -->
+            <div class="flex items-center gap-6 mb-8">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-100 flex items-center justify-center shadow-lg">
+                  ${isArchive 
+                    ? `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                       </svg>`
+                    : `<span class="text-xl font-extrabold text-white">${year.toString().slice(-2)}</span>`
+                  }
+                </div>
+              </div>
+              <div class="flex-1">
+                <h2 class="text-2xl font-bold text-slate-900">${sectionTitle}</h2>
+                <p class="text-slate-500 text-sm">${sectionSubtitle}</p>
+              </div>
+              <div class="hidden md:block flex-shrink-0">
+                <div class="h-px bg-gradient-to-r from-slate-200 to-transparent w-32"></div>
+              </div>
+            </div>
+
+            <!-- Albums Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              ${albumCards}
+            </div>
+          </div>
+        `;
+      }
+
+      // Render gallery based on filter
+      function renderGallery(yearFilter) {
+        const container = document.getElementById('gallery-timeline');
+        const emptyState = document.getElementById('empty-state');
+        
+        const albums = getAlbumsByYear(yearFilter);
+
+        if (albums.length === 0) {
+          container.innerHTML = '';
+          emptyState.classList.remove('hidden');
+          return;
+        }
+
+        emptyState.classList.add('hidden');
+
+        // Group albums by year
+        const albumsByYear = {};
+        
+        if (yearFilter === 'all') {
+          // Group by individual years
+          albums.forEach(album => {
+            if (!albumsByYear[album.year]) {
+              albumsByYear[album.year] = [];
+            }
+            albumsByYear[album.year].push(album);
+          });
+        } else if (yearFilter === 'archive') {
+          // Group all archive albums together
+          albumsByYear['archive'] = albums;
+        } else {
+          // Single year
+          albumsByYear[yearFilter] = albums;
+        }
+
+        // Sort years descending
+        const sortedYears = Object.keys(albumsByYear).sort((a, b) => {
+          if (a === 'archive') return 1;
+          if (b === 'archive') return -1;
+          return parseInt(b) - parseInt(a);
+        });
+
+        let html = '';
+        sortedYears.forEach(year => {
+          // Sort albums within year by date descending
+          const yearAlbums = albumsByYear[year].sort((a, b) => new Date(b.date) - new Date(a.date));
+          html += generateYearSection(year, yearAlbums);
+        });
+
+        container.innerHTML = html;
+
+        // Re-initialize fade-in observer for new elements
+        initFadeInObserver();
+      }
+
+      // Filter by year
+      function filterByYear(year) {
+        currentFilter = year;
+        
+        // Update active button state
+        document.querySelectorAll('.year-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        document.querySelector(`.year-btn[data-year="${year}"]`).classList.add('active');
+
+        // Animate transition
+        const container = document.getElementById('gallery-timeline');
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(20px)';
+
+        setTimeout(() => {
+          renderGallery(year);
+          container.style.transition = 'all 0.4s ease';
+          container.style.opacity = '1';
+          container.style.transform = 'translateY(0)';
+        }, 200);
+      }
+
+      // Handle album click (placeholder for now)
+      function handleAlbumClick(albumId) {
+        console.log('Album clicked:', albumId);
+        // Future: Navigate to album details page or open lightbox
+      }
+
+      // Initialize page
+      document.addEventListener('DOMContentLoaded', function() {
+        initSharedComponents('galerija');
+        renderGallery('all');
+      });
+    </script>
+  </body>
+</html>

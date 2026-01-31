@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pravila i Težine Izleta - HPD MIV Varaždin</title>
+    <meta
+      name="description"
+      content="Pravila sudjelovanja i klasifikacija težine planinarskih izleta HPD MIV Varaždin. Saznajte što znače oznake K1-K4 i T1-T4."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            colors: {
+              brand: {
+                50: "#DCE8E1",
+                100: "#2D4F39",
+                600: "#2d4f39",
+                700: "#1e3a28",
+              },
+              slate: { 850: "#1e293b", 900: "#0f172a" },
+            },
+            boxShadow: {
+              soft: "0 20px 40px -15px rgba(0, 0, 0, 0.05)",
+              card: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)",
+              hover: "0 20px 40px -5px rgba(0, 0, 0, 0.1)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Mega Menu */
+      .mega-menu {
+        transition: all 0.2s ease-in-out;
+        transform-origin: top;
+      }
+      .mega-menu.hidden {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        display: block;
+        pointer-events: none;
+      }
+      .mega-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* Fade in */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Difficulty cards */
+      .difficulty-card {
+        transition: all 0.3s ease;
+      }
+      .difficulty-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Header (loaded dynamically) -->
+    <div id="site-header"></div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-brand-600 to-brand-700 py-24 overflow-hidden">
+      <!-- Grid pattern -->
+      <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100" height="100" fill="url(#grid)"/>
+        </svg>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <!-- Breadcrumb -->
+        <nav class="mb-8" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 text-sm">
+            <li>
+              <a
+                href="index_sample.html"
+                class="text-white/70 hover:text-white transition"
+                >Početna</a
+              >
+            </li>
+            <li class="text-white/50">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </li>
+            <li class="text-white font-medium">Pravila i Težine</li>
+          </ol>
+        </nav>
+
+        <div class="max-w-4xl">
+          <h1
+            class="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight"
+          >
+            Pravila sudjelovanja i<br />
+            težine izleta
+          </h1>
+          <p class="text-lg text-white/80 max-w-2xl leading-relaxed">
+            Sudjelovanje u planinarskim izletima temelji se na osobnoj
+            odgovornosti, međusobnom poštovanju i pridržavanju pravila sigurnog
+            boravka u planini. Molimo sve sudionike da se s pravilima upoznaju
+            prije prijave na izlet.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- General Rules Section -->
+    <section id="pravila" class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <!-- Section Header -->
+          <div class="mb-12">
+            <span
+              class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block"
+              >Opća pravila</span
+            >
+            <h2
+              class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight"
+            >
+              Uvjeti sudjelovanja
+            </h2>
+          </div>
+
+          <!-- Confirmation Box -->
+          <div class="bg-white rounded-2xl p-8 shadow-card border border-slate-100 mb-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-brand-600/10 flex items-center justify-center text-brand-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              Odazivom na izlet, svaki sudionik potvrđuje da:
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-4">
+                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-slate-700">Ispunjava <strong>zdravstvene i fizičke uvjete</strong> potrebne za sigurno sudjelovanje na izletu</span>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-slate-700">Pristupa izletu <strong>na vlastitu odgovornost</strong></span>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-slate-700">Prihvaća <strong>plan izleta</strong> te će se pridržavati odluka i uputa vodiča tijekom cijelog trajanja izleta</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Info Box -->
+          <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 mb-8">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <p class="text-blue-800 text-sm leading-relaxed">
+                <strong>Napomena:</strong> Vodiči izleta zadržavaju pravo izmjene ili dopune plana izleta u skladu s vremenskim uvjetima, stanjem na terenu, sigurnosnim procjenama i mogućnostima grupe.
+              </p>
+            </div>
+          </div>
+
+          <!-- Required Documents -->
+          <div class="bg-white rounded-2xl p-8 shadow-card border border-slate-100">
+            <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center text-amber-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+              Svaki sudionik izleta mora imati:
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="p-4 bg-slate-50 rounded-xl text-center">
+                <div class="w-12 h-12 rounded-full bg-brand-600/10 flex items-center justify-center text-brand-600 mx-auto mb-3">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <p class="font-bold text-slate-900 text-sm">Uplaćena članarina</p>
+                <p class="text-xs text-slate-500 mt-1">za tekuću godinu</p>
+              </div>
+              <div class="p-4 bg-slate-50 rounded-xl text-center">
+                <div class="w-12 h-12 rounded-full bg-brand-600/10 flex items-center justify-center text-brand-600 mx-auto mb-3">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path>
+                  </svg>
+                </div>
+                <p class="font-bold text-slate-900 text-sm">Planinarska iskaznica</p>
+                <p class="text-xs text-slate-500 mt-1">važeća HPS iskaznica</p>
+              </div>
+              <div class="p-4 bg-slate-50 rounded-xl text-center">
+                <div class="w-12 h-12 rounded-full bg-brand-600/10 flex items-center justify-center text-brand-600 mx-auto mb-3">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z"></path>
+                  </svg>
+                </div>
+                <p class="font-bold text-slate-900 text-sm">Osobna iskaznica</p>
+                <p class="text-xs text-slate-500 mt-1">ili putovnica za inozemstvo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Responsible Behavior Section -->
+    <section id="ponasanje" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <!-- Section Header -->
+          <div class="mb-12">
+            <span
+              class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block"
+              >Ponašanje</span
+            >
+            <h2
+              class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight"
+            >
+              Odgovorno ponašanje u planini
+            </h2>
+          </div>
+
+          <!-- Behavior Rules -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+              <div class="w-12 h-12 rounded-xl bg-brand-600/10 flex items-center justify-center text-brand-600 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
+              <h4 class="font-bold text-slate-900 mb-2">Solidarnost i etika</h4>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Sudionici su dužni ponašati se odgovorno, solidarno i u skladu s planinarskom etikom.
+              </p>
+            </div>
+
+            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+              <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center text-red-600 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+                </svg>
+              </div>
+              <h4 class="font-bold text-slate-900 mb-2">Bez odvajanja od grupe</h4>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Zabranjeno je samovoljno odvajanje od grupe bez znanja vodiča.
+              </p>
+            </div>
+
+            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+              <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center text-red-600 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </div>
+              <h4 class="font-bold text-slate-900 mb-2">Bez alkohola i opijata</h4>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Konzumacija alkohola i opojnih sredstava tijekom izleta nije dopuštena.
+              </p>
+            </div>
+
+            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+              <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                </svg>
+              </div>
+              <h4 class="font-bold text-slate-900 mb-2">Komunikacija s vodičem</h4>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Svaki sudionik dužan je procijeniti vlastite mogućnosti i na vrijeme obavijestiti vodiča o eventualnim poteškoćama.
+              </p>
+            </div>
+          </div>
+
+          <!-- Nature Protection Box -->
+          <div class="bg-green-600 rounded-2xl p-8 text-white">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center">
+                  <span class="text-4xl">🌱</span>
+                </div>
+              </div>
+              <div class="text-center md:text-left">
+                <h3 class="text-2xl font-bold mb-2">Zaštita prirode</h3>
+                <p class="text-white/90 text-lg font-medium mb-2">
+                  SVOJE SMEĆE UVIJEK NOSITE U DOLINU!
+                </p>
+                <p class="text-white/70">
+                  Planina nije mjesto za otpad – čuvajmo prirodu za buduće generacije.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Difficulty Classification Section -->
+    <section id="tezine" class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-5xl mx-auto">
+          <!-- Section Header -->
+          <div class="text-center mb-16">
+            <span
+              class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block"
+              >Klasifikacija</span
+            >
+            <h2
+              class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight"
+            >
+              Težine planinarskih izleta
+            </h2>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+              Kako bi sudionici lakše procijenili odgovara li im pojedini izlet, svaki izlet ima označenu kondicijsku i tehničku zahtjevnost.
+            </p>
+          </div>
+
+          <!-- Two Columns -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Kondition (K) -->
+            <div>
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
+                  <span class="text-2xl font-extrabold text-amber-600">K</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">Kondicijska zahtjevnost</h3>
+                  <p class="text-sm text-slate-500">Fizička izdržljivost i trajanje hoda</p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <!-- K1 -->
+                <div class="difficulty-card bg-white rounded-xl p-5 shadow-card border border-slate-100">
+                  <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <span class="text-lg font-extrabold text-green-600">K1</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 mb-1">Lagano</h4>
+                      <p class="text-slate-600 text-sm">Manje od 5 sati hoda</p>
+                      <p class="text-slate-500 text-xs mt-1">Prikladno za početnike i rekreativce</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- K2 -->
+                <div class="difficulty-card bg-white rounded-xl p-5 shadow-card border border-slate-100">
+                  <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-xl bg-yellow-100 flex items-center justify-center flex-shrink-0">
+                      <span class="text-lg font-extrabold text-yellow-600">K2</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 mb-1">Umjereno teško</h4>
+                      <p class="text-slate-600 text-sm">5 do 7 sati hoda</p>
+                      <p class="text-slate-500 text-xs mt-1">Zahtijeva osnovnu kondiciju</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- K3 -->
+                <div class="difficulty-card bg-white rounded-xl p-5 shadow-card border border-slate-100">
+                  <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
+                      <span class="text-lg font-extrabold text-orange-600">K3</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 mb-1">Teško</h4>
+                      <p class="text-slate-600 text-sm">7 do 9 sati hoda</p>
+                      <p class="text-slate-500 text-xs mt-1">Za iskusnije planinare s dobrom kondicijom</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- K4 -->
+                <div class="difficulty-card bg-white rounded-xl p-5 shadow-card border border-slate-100">
+                  <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-xl bg-red-100 flex items-center justify-center flex-shrink-0">
+                      <span class="text-lg font-extrabold text-red-600">K4</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 mb-1">Vrlo teško</h4>
+                      <p class="text-slate-600 text-sm">Više od 9 sati hoda</p>
+                      <p class="text-slate-500 text-xs mt-1">Samo za vrlo iskusne i kondicijski spremne planinare</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technical (T) -->
+            <div>
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center">
+                  <span class="text-2xl font-extrabold text-purple-600">T</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900">Tehnička zahtjevnost</h3>
+                  <p class="text-sm text-slate-500">Zahtjevnost terena i potrebna oprema</p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <!-- T1 -->
+                <div class="difficulty-card bg-white rounded-xl p-5 shadow-card border border-slate-100">
+                  <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <span class="text-lg font-extrabold text-green-600">T1</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 mb-1">Nezahtjevno</h4>
+                      <p class="text-slate-600 text-sm">Hodnja po uređenim ili dobro vidljivim stazama</p>
+                      <p class="text-slate-500 text-xs mt-1">Bez upotrebe ruku i pomagala</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- T2 -->
+                <div class="difficulty-card bg-white rounded-xl p-5 shadow-card border border-slate-100">
+                  <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-xl bg-yellow-100 flex items-center justify-center flex-shrink-0">
+                      <span class="text-lg font-extrabold text-yellow-600">T2</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 mb-1">Umjereno zahtjevno</h4>
+                      <p class="text-slate-600 text-sm">Hodnja uz povremenu upotrebu ruku</p>
+                      <p class="text-slate-500 text-xs mt-1">Kraće dionice laganog penjanja</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- T3 -->
+                <div class="difficulty-card bg-white rounded-xl p-5 shadow-card border border-slate-100">
+                  <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0">
+                      <span class="text-lg font-extrabold text-orange-600">T3</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 mb-1">Zahtjevno</h4>
+                      <p class="text-slate-600 text-sm">Povremeno penjanje uz upotrebu ruku i tehničkih pomagala</p>
+                      <p class="text-slate-500 text-xs mt-1">Klinovi, čelična užad • Zimi: moguća upotreba dereza i cepina</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- T4 -->
+                <div class="difficulty-card bg-white rounded-xl p-5 shadow-card border border-slate-100">
+                  <div class="flex items-start gap-4">
+                    <div class="w-14 h-14 rounded-xl bg-red-100 flex items-center justify-center flex-shrink-0">
+                      <span class="text-lg font-extrabold text-red-600">T4</span>
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 mb-1">Vrlo zahtjevno</h4>
+                      <p class="text-slate-600 text-sm">Duže i tehnički zahtjevne dionice osiguranih putova</p>
+                      <p class="text-slate-500 text-xs mt-1">Ozbiljnije penjanje • Zimi: konstantna upotreba dereza i cepina</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Note Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <!-- Mountain Icon -->
+          <div class="w-20 h-20 mx-auto mb-6 bg-brand-600/10 rounded-2xl flex items-center justify-center">
+            <span class="text-4xl">🏔️</span>
+          </div>
+
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+            Planina nagrađuje odgovorne
+          </h2>
+          
+          <p class="text-slate-600 text-lg leading-relaxed mb-8">
+            Sudjelovanjem u izletima doprinosimo zajedništvu, sigurnosti i ugledu društva.
+            Ako niste sigurni odgovara li vam pojedini izlet prema težini ili tehničkoj zahtjevnosti, 
+            <strong>slobodno se obratite vodiču prije prijave</strong>.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="index_sample.html#izleti"
+              class="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white text-lg px-8 py-4 rounded-xl font-bold shadow-lg shadow-brand-600/20 transition"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              Pogledaj kalendar izleta
+            </a>
+            <a
+              href="pristupnica.html"
+              class="inline-flex items-center justify-center gap-2 bg-white text-slate-900 border border-slate-200 text-lg px-8 py-4 rounded-xl font-bold hover:bg-slate-50 hover:border-slate-300 transition"
+            >
+              Postani član
+            </a>
+          </div>
+
+          <!-- Back Link -->
+          <div class="mt-12">
+            <a href="index_sample.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-brand-600 transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+              </svg>
+              Povratak na početnu
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (loaded dynamically) -->
+    <div id="site-footer"></div>
+
+    <!-- Shared Components -->
+    <script src="shared-components.js"></script>
+
+    <script>
+      // Initialize shared components
+      document.addEventListener("DOMContentLoaded", function () {
+        initSharedComponents("izleti");
+      });
+    </script>
+  </body>
+</html>

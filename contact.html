@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt - HPD MIV Varaždin</title>
+    <meta
+      name="description"
+      content="Kontaktirajte HPD MIV Varaždin. Email, lokacija, radno vrijeme i informacije o društvu."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            colors: {
+              brand: {
+                50: "#DCE8E1",
+                100: "#2D4F39",
+                600: "#2d4f39",
+                700: "#1e3a28",
+              },
+              slate: { 850: "#1e293b", 900: "#0f172a" },
+            },
+            boxShadow: {
+              soft: "0 20px 40px -15px rgba(0, 0, 0, 0.05)",
+              card: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)",
+              hover: "0 20px 40px -5px rgba(0, 0, 0, 0.1)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Mega Menu */
+      .mega-menu {
+        transition: all 0.2s ease-in-out;
+        transform-origin: top;
+      }
+      .mega-menu.hidden {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        display: block;
+        pointer-events: none;
+      }
+      .mega-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* Fade in */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Contact cards */
+      .contact-card {
+        transition: all 0.3s ease;
+      }
+      .contact-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Header (loaded dynamically) -->
+    <div id="site-header"></div>
+
+    <!-- Hero Section -->
+     <section class="relative bg-gradient-to-br from-brand-600 to-brand-700 py-24 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+          <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)"/>
+          </svg>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+          <!-- Breadcrumb -->
+          <nav class="mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center gap-2 text-sm">
+              <li>
+                <a
+                  href="index_sample.html"
+                  class="text-white/70 hover:text-white transition"
+                  >Početna</a
+                >
+              </li>
+              <li class="text-white/50">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </li>
+              <li class="text-white font-medium">Kontakt</li>
+            </ol>
+          </nav>
+
+          <div class="max-w-4xl">
+            <h1
+              class="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight"
+            >
+              Kontaktirajte nas
+            </h1>
+            <p class="text-lg text-white/80 max-w-2xl leading-relaxed">
+              Imate pitanja o izletima, članstvu ili aktivnostima društva? 
+              Javite nam se putem emaila ili nas posjetite uživo svake srijede.
+            </p>
+          </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-6xl mx-auto">
+          <!-- Contact Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <!-- Email -->
+            <div class="contact-card bg-white rounded-2xl p-6 shadow-card border border-slate-100">
+              <div class="w-14 h-14 rounded-xl bg-brand-600/10 flex items-center justify-center text-brand-600 mb-5">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">Email</h3>
+              <a href="mailto:hpdmiv@gmail.com" class="text-brand-600 hover:text-brand-700 font-medium transition">
+                hpdmiv@gmail.com
+              </a>
+            </div>
+
+            <!-- Available Time -->
+            <div class="contact-card bg-white rounded-2xl p-6 shadow-card border border-slate-100">
+              <div class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center text-green-600 mb-5">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">Dostupni smo</h3>
+              <p class="text-slate-600">Svake <strong>srijede</strong></p>
+              <p class="text-brand-600 font-bold">18:00 – 19:00</p>
+            </div>
+
+            <!-- Address -->
+            <div class="contact-card bg-white rounded-2xl p-6 shadow-card border border-slate-100">
+              <div class="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 mb-5">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">Gdje nas pronaći</h3>
+              <p class="text-slate-600">Trakošćanska ulica 24</p>
+              <p class="text-slate-500 text-sm">42000 Varaždin</p>
+            </div>
+
+            <!-- Facebook -->
+            <div class="contact-card bg-white rounded-2xl p-6 shadow-card border border-slate-100">
+              <div class="w-14 h-14 rounded-xl bg-blue-600/10 flex items-center justify-center text-blue-600 mb-5">
+                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">Facebook</h3>
+              <a href="https://facebook.com/hpdmiv.varazdin/" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-700 font-medium transition text-sm">
+                facebook.com/hpdmiv.varazdin
+              </a>
+            </div>
+          </div>
+
+          <!-- Bank Account Box -->
+          <div class="bg-white rounded-2xl p-8 shadow-card border border-slate-100 mb-16">
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+              <div class="w-16 h-16 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 flex-shrink-0">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Žiro račun</h3>
+                <p class="text-slate-600 mb-2">HPD "MIV" VARAŽDIN</p>
+                <div class="flex flex-wrap items-center gap-4">
+                  <code class="bg-slate-100 px-4 py-2 rounded-lg text-lg font-mono font-bold text-slate-900">
+                    HR2423400091116025246
+                  </code>
+                  <span class="text-slate-500">u PBZ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-6xl mx-auto">
+          <!-- Section Header -->
+          <div class="text-center mb-12">
+            <span class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block">Lokacije</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+              Naše lokacije
+            </h2>
+          </div>
+
+          <!-- Two Location Cards -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Location 1: Sjedište društva -->
+            <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100">
+              <!-- Map -->
+              <div class="h-64 bg-slate-200">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2767.5!2d16.3375!3d46.3044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4768a85b15555555%3A0x0!2sMetalska%202%2C%2042000%2C%20Vara%C5%BEdin!5e0!3m2!1shr!2shr!4v1706000000000!5m2!1shr!2shr"
+                  width="100%" 
+                  height="100%" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+              <!-- Info -->
+              <div class="p-6">
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 rounded-xl bg-brand-600 flex items-center justify-center text-white flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Sjedište društva</span>
+                    <h3 class="text-xl font-bold text-slate-900 mt-1 mb-3">
+                      Hrvatsko planinarsko društvo "MIV Varaždin"
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                      <p class="flex items-center gap-2 text-slate-600">
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        Metalska 2, 42000 Varaždin
+                      </p>
+                      <p class="flex items-center gap-2 text-slate-600">
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        hpdmiv@gmail.com
+                      </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-200 space-y-1 text-xs text-slate-500">
+                      <p><strong>Matični broj:</strong> 3381323</p>
+                      <p><strong>OIB:</strong> 66652901002</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location 2: Prostorije za sastanke -->
+            <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100">
+              <!-- Map -->
+              <div class="h-64 bg-slate-200">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2767.5!2d16.3336!3d46.3067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4768a85b15555555%3A0x0!2sTrako%C5%A1%C4%87anska%2024%2C%2042000%2C%20Vara%C5%BEdin!5e0!3m2!1shr!2shr!4v1706000000000!5m2!1shr!2shr"
+                  width="100%" 
+                  height="100%" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+              <!-- Info -->
+              <div class="p-6">
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 rounded-xl bg-green-600 flex items-center justify-center text-white flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-green-600 uppercase tracking-wider">Mjesto okupljanja</span>
+                    <h3 class="text-xl font-bold text-slate-900 mt-1 mb-3">
+                      Prostorije 4. mjesnog odbora Grada Varaždina
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                      <p class="flex items-center gap-2 text-slate-600">
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        Trakošćanska 24, 42000 Varaždin
+                      </p>
+                      <p class="flex items-center gap-2 text-slate-600">
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Svake srijede u 18:00
+                      </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-200">
+                      <div class="inline-flex items-center gap-2 bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-xs font-bold">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        Sastajemo se ovdje
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+            Želite se priključiti društvu?
+          </h2>
+          <p class="text-slate-600 text-lg leading-relaxed mb-8">
+            Ispunite online pristupnicu ili nas posjetite uživo svake srijede od 18:00 do 19:00 sati.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="pristupnica.html"
+              class="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white text-lg px-8 py-4 rounded-xl font-bold shadow-lg shadow-brand-600/20 transition"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+              </svg>
+              Postani član
+            </a>
+            <a
+              href="index_sample.html#izleti"
+              class="inline-flex items-center justify-center gap-2 bg-white text-slate-900 border border-slate-200 text-lg px-8 py-4 rounded-xl font-bold hover:bg-slate-50 hover:border-slate-300 transition"
+            >
+              Pogledaj kalendar izleta
+            </a>
+          </div>
+
+          <!-- Back Link -->
+          <div class="mt-12">
+            <a href="index_sample.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-brand-600 transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+              </svg>
+              Povratak na početnu
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (loaded dynamically) -->
+    <div id="site-footer"></div>
+
+    <!-- Shared Components -->
+    <script src="shared-components.js"></script>
+
+    <script>
+      // Initialize shared components
+      document.addEventListener("DOMContentLoaded", function () {
+        initSharedComponents("kontakt");
+      });
+    </script>
+  </body>
+</html>

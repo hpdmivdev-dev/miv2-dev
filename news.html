@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novost - HPD MIV Varaždin</title>
+    <meta
+      name="description"
+      content="Novosti iz HPD MIV Varaždin - najnovije informacije i obavijesti."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+      <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            colors: {
+              brand: {
+                50: "#DCE8E1",
+                100: "#2D4F39",
+                600: "#2d4f39",
+                700: "#1e3a28",
+              },
+              slate: { 850: "#1e293b", 900: "#0f172a" },
+            },
+            boxShadow: {
+              soft: "0 20px 40px -15px rgba(0, 0, 0, 0.05)",
+              card: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)",
+              hover: "0 20px 40px -5px rgba(0, 0, 0, 0.1)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Mega Menu */
+      .mega-menu {
+        transition: all 0.2s ease-in-out;
+        transform-origin: top;
+      }
+      .mega-menu.hidden {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        display: block;
+        pointer-events: none;
+      }
+      .mega-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* Fade in on scroll */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Article content styling */
+      .article-content h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      .article-content p {
+        margin-bottom: 1rem;
+        line-height: 1.75;
+      }
+      .article-content ul, .article-content ol {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+      }
+      .article-content ul {
+        list-style-type: disc;
+      }
+      .article-content ol {
+        list-style-type: decimal;
+      }
+      .article-content li {
+        margin-bottom: 0.5rem;
+        line-height: 1.75;
+      }
+      .article-content a {
+        color: #2d4f39;
+        text-decoration: underline;
+      }
+      .article-content a:hover {
+        color: #1e3a28;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Header (loaded dynamically) -->
+    <div id="site-header"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="relative bg-gradient-to-br from-brand-600 to-brand-700 py-24 overflow-hidden">
+        <!-- Grid pattern overlay -->
+        <div class="absolute inset-0 opacity-10">
+          <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)"/>
+          </svg>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+          <!-- Breadcrumb -->
+          <nav class="mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center gap-2 text-sm">
+              <li>
+                <a href="index_sample.html" class="text-white/70 hover:text-white transition">Početna</a>
+              </li>
+              <li class="text-white/50">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </li>
+              <li>
+                <a href="index_sample.html#novosti" class="text-white/70 hover:text-white transition">Novosti</a>
+              </li>
+              <li class="text-white/50">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </li>
+              <li id="breadcrumb-title" class="text-white font-medium">Naslov novosti</li>
+            </ol>
+          </nav>
+
+          <!-- Header Content -->
+          <div class="max-w-4xl">
+            <!-- Type Badge -->
+            <div class="flex items-center gap-3 mb-6">
+              <span id="news-type-badge" class="inline-block px-4 py-1.5 bg-white/20 backdrop-blur rounded-full text-white text-xs font-bold uppercase tracking-wider">
+                Važno
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h1 id="news-title" class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-8 leading-tight">
+              Promjena radnog vremena ureda tijekom blagdana
+            </h1>
+
+            <!-- Meta Info -->
+            <div class="flex flex-wrap items-center gap-8 text-sm text-white/80">
+              <!-- Date -->
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <span id="news-date" class="font-medium">10. Prosinca 2025.</span>
+              </div>
+              <!-- Author -->
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+                <span id="news-author" class="font-medium">Uprava HPD MIV</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Article Content -->
+      <section class="py-16 fade-in-section">
+        <div class="container mx-auto px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Main Content -->
+            <div class="lg:col-span-2">
+              <!-- Featured Image -->
+              <div class="mb-10 rounded-2xl overflow-hidden shadow-soft">
+                <img
+                  id="news-image"
+                  src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80"
+                  alt="Slika novosti"
+                  class="w-full h-auto object-cover"
+                />
+              </div>
+
+              <!-- Article Text -->
+              <article id="news-content" class="article-content text-slate-600 text-lg">
+                <p>Sadržaj novosti...</p>
+              </article>
+
+              <!-- Share Section -->
+              <div class="mt-12 pt-8 border-t border-slate-100">
+                <p class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-4">Podijeli novost</p>
+                <div class="flex gap-3">
+                  <a href="#" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-brand-600 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                  </a>
+                  <a href="#" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-brand-600 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                  </a>
+                  <button onclick="navigator.clipboard.writeText(window.location.href)" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-brand-600 hover:text-white transition" title="Kopiraj link">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+              <div class="sticky top-8">
+                <!-- Related News -->
+                <div class="bg-slate-50 rounded-2xl p-6">
+                  <h3 class="font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                    </svg>
+                    Ostale novosti
+                  </h3>
+
+                  <div id="related-news" class="space-y-4">
+                    <!-- Will be populated dynamically -->
+                  </div>
+                </div>
+
+                <!-- Back to News Link -->
+                <div class="mt-6 text-center">
+                  <a
+                    href="index_sample.html#novosti"
+                    class="inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-700 transition group"
+                  >
+                    <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Povratak na novosti
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (loaded dynamically) -->
+    <div id="site-footer"></div>
+
+    <!-- News Data -->
+    <script src="news-data.js"></script>
+
+    <!-- Shared Components -->
+    <script src="shared-components.js"></script>
+
+    <script>
+      // Get news ID from URL
+      function getNewsIdFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('id') || '1';
+      }
+
+      // Load news data and populate page
+      function loadNewsData() {
+        const newsId = getNewsIdFromUrl();
+        const news = getNewsById(newsId);
+        
+        if (!news) {
+          console.error('News not found:', newsId);
+          return;
+        }
+
+        const newsType = getNewsType(news.type);
+
+        // Update title
+        document.title = `${news.title} - HPD MIV Varazdin`;
+        
+        // Update breadcrumb
+        document.getElementById('breadcrumb-title').textContent = news.title;
+        
+        // Update type badge
+        const typeBadge = document.getElementById('news-type-badge');
+        typeBadge.textContent = newsType.name;
+        typeBadge.className = `inline-flex items-center px-4 py-1.5 rounded-full bg-white/20 backdrop-blur text-white text-xs font-bold uppercase tracking-wider`;
+        
+        // Update title
+        document.getElementById('news-title').textContent = news.title;
+        
+        // Update date
+        document.getElementById('news-date').textContent = formatNewsDate(news.date);
+        
+        // Update author
+        document.getElementById('news-author').textContent = news.author;
+        
+        // Update image
+        document.getElementById('news-image').src = news.image;
+        document.getElementById('news-image').alt = news.title;
+        
+        // Update content
+        document.getElementById('news-content').innerHTML = news.content;
+        
+        // Populate related news
+        const relatedContainer = document.getElementById('related-news');
+        const otherNews = MOCK_NEWS.filter(n => n.id !== parseInt(newsId)).slice(0, 3);
+        
+        relatedContainer.innerHTML = otherNews.map(n => {
+          const type = getNewsType(n.type);
+          return `
+            <a href="news.html?id=${n.id}" class="block p-4 bg-white rounded-xl border border-slate-100 hover:border-brand-200 hover:shadow-sm transition group">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="${type.bgClass} ${type.textClass} text-[10px] font-bold px-2 py-0.5 rounded border ${type.borderClass} uppercase">${type.name}</span>
+                <span class="text-xs text-slate-400">${formatNewsDateShort(n.date)}</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 group-hover:text-brand-600 transition line-clamp-2">${n.title}</h4>
+            </a>
+          `;
+        }).join('');
+      }
+
+      // Load news data on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        initSharedComponents('news');
+        loadNewsData();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vodstvo Društva - HPD MIV Varaždin</title>
+    <meta name="description" content="Upravni odbor i vodstvo HPD MIV Varaždin - predsjednik, tajnica, blagajnik i predsjednici sekcija." />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            colors: {
+              brand: {
+                50: "#DCE8E1",
+                100: "#FFCDD2",
+                600: "#2d4f39",
+                700: "#1e3a28",
+              },
+            },
+            boxShadow: {
+              card: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)",
+              hover: "0 20px 40px -5px rgba(0, 0, 0, 0.1)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Mega Menu */
+      .mega-menu {
+        transition: all 0.2s ease-in-out;
+        transform-origin: top;
+      }
+      .mega-menu.hidden {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        display: block;
+        pointer-events: none;
+      }
+      .mega-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .member-card:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Header (loaded dynamically) -->
+    <div id="site-header"></div>
+
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="relative bg-gradient-to-br from-brand-600 to-brand-700 py-24 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+          <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)"/>
+          </svg>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+          <nav class="mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center gap-2 text-sm">
+              <li><a href="index_sample.html" class="text-white/70 hover:text-white transition">Početna</a></li>
+              <li class="text-white/50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></li>
+              <li class="text-white font-medium">Vodstvo društva</li>
+            </ol>
+          </nav>
+
+          <div class="max-w-3xl">
+            <span class="inline-block px-4 py-1.5 bg-white/20 backdrop-blur rounded-full text-white text-xs font-bold uppercase tracking-wider mb-6">
+              Organizacija
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
+              Vodstvo društva
+            </h1>
+            <p class="text-xl text-white/80 leading-relaxed">
+              Društvom upravljaju volonteri izabrani na skupštini. Upoznajte ljude koji vode HPD MIV Varaždin.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Upravni odbor -->
+      <section class="py-24 bg-white fade-in-section">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-16">
+            <span class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block">Uprava</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Upravni odbor</h2>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+              Članovi upravnog odbora odgovorni su za strateško vođenje i svakodnevno upravljanje društvom.
+            </p>
+          </div>
+
+          <!-- Main leadership - President, Secretary, Treasurer -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <!-- Predsjednik -->
+            <div class="member-card bg-gradient-to-br from-brand-600 to-brand-700 rounded-2xl p-8 text-center text-white shadow-hover transition-all duration-300">
+              <div class="w-20 h-20 rounded-full bg-white/20 backdrop-blur flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl font-extrabold">SS</span>
+              </div>
+              <h3 class="text-xl font-bold mb-1">Srećko Sekulić</h3>
+              <p class="text-white/70 text-sm font-bold uppercase tracking-wide mb-4">Predsjednik</p>
+              <div class="space-y-2 text-sm">
+                <a href="tel:+385958610159" class="flex items-center justify-center gap-2 text-white/80 hover:text-white transition">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                  095 861 0159
+                </a>
+                <a href="mailto:ssekulic54@gmail.com" class="flex items-center justify-center gap-2 text-white/80 hover:text-white transition">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  ssekulic54@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <!-- Tajnica -->
+            <div class="member-card bg-white rounded-2xl p-8 text-center border border-slate-200 shadow-card hover:shadow-hover transition-all duration-300">
+              <div class="w-20 h-20 rounded-full bg-brand-600/10 flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl font-extrabold text-brand-600">MN</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-1">Marija Njegovec</h3>
+              <p class="text-brand-600 text-sm font-bold uppercase tracking-wide mb-4">Tajnica</p>
+              <div class="space-y-2 text-sm">
+                <a href="tel:+385993152284" class="flex items-center justify-center gap-2 text-slate-500 hover:text-brand-600 transition">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                  099 315 2284
+                </a>
+                <a href="mailto:marija.njegovec290559@gmail.com" class="flex items-center justify-center gap-2 text-slate-500 hover:text-brand-600 transition">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  marija.njegovec290559@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <!-- Blagajnik -->
+            <div class="member-card bg-white rounded-2xl p-8 text-center border border-slate-200 shadow-card hover:shadow-hover transition-all duration-300">
+              <div class="w-20 h-20 rounded-full bg-amber-600/10 flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl font-extrabold text-amber-600">TL</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-1">Terezija Lazar</h3>
+              <p class="text-amber-600 text-sm font-bold uppercase tracking-wide mb-4">Blagajnik</p>
+              <div class="space-y-2 text-sm">
+                <a href="tel:+385911493377" class="flex items-center justify-center gap-2 text-slate-500 hover:text-amber-600 transition">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                  091 149 3377
+                </a>
+                <a href="mailto:terezija.lazar@gmail.com" class="flex items-center justify-center gap-2 text-slate-500 hover:text-amber-600 transition">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  terezija.lazar@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other board members -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Financijski analitičar -->
+            <div class="member-card bg-slate-50 rounded-xl p-5 flex items-center gap-4 border border-slate-100 hover:border-brand-200 hover:shadow-sm transition-all duration-300">
+              <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-600 flex-shrink-0">MV</div>
+              <div class="min-w-0">
+                <p class="font-bold text-slate-900 truncate">Mira Visković</p>
+                <p class="text-xs text-slate-500">Financijski analitičar</p>
+                <a href="tel:+38592395769" class="text-xs text-brand-600 hover:underline">092 395 7691</a>
+              </div>
+            </div>
+
+            <!-- Predsjednici sekcija -->
+            <div class="member-card bg-slate-50 rounded-xl p-5 flex items-center gap-4 border border-slate-100 hover:border-brand-200 hover:shadow-sm transition-all duration-300">
+              <div class="w-12 h-12 rounded-full bg-brand-600 flex items-center justify-center font-bold text-white flex-shrink-0">DP</div>
+              <div class="min-w-0">
+                <p class="font-bold text-slate-900 truncate">Domagoj Potrebica</p>
+                <p class="text-xs text-slate-500">Izletnička i Vodička sekcija</p>
+                <a href="tel:+385916035948" class="text-xs text-brand-600 hover:underline">091 603 5948</a>
+              </div>
+            </div>
+
+            <div class="member-card bg-slate-50 rounded-xl p-5 flex items-center gap-4 border border-slate-100 hover:border-brand-200 hover:shadow-sm transition-all duration-300">
+              <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center font-bold text-white flex-shrink-0">MG</div>
+              <div class="min-w-0">
+                <p class="font-bold text-slate-900 truncate">Mladen Galinec</p>
+                <p class="text-xs text-slate-500">Sekcija "ST-IJ"</p>
+                <a href="tel:+38598523005" class="text-xs text-brand-600 hover:underline">098 523 005</a>
+              </div>
+            </div>
+
+            <div class="member-card bg-slate-50 rounded-xl p-5 flex items-center gap-4 border border-slate-100 hover:border-brand-200 hover:shadow-sm transition-all duration-300">
+              <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center font-bold text-white flex-shrink-0">SM</div>
+              <div class="min-w-0">
+                <p class="font-bold text-slate-900 truncate">Siniša Miličić</p>
+                <p class="text-xs text-slate-500">Sekcija za održavanje puteva</p>
+                <a href="tel:+385953963131" class="text-xs text-brand-600 hover:underline">095 396 3131</a>
+              </div>
+            </div>
+
+            <div class="member-card bg-slate-50 rounded-xl p-5 flex items-center gap-4 border border-slate-100 hover:border-brand-200 hover:shadow-sm transition-all duration-300">
+              <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center font-bold text-white flex-shrink-0">SV</div>
+              <div class="min-w-0">
+                <p class="font-bold text-slate-900 truncate">Siniša Vrbanić</p>
+                <p class="text-xs text-slate-500">Sekcija "Čevo"</p>
+                <a href="tel:+385998037033" class="text-xs text-brand-600 hover:underline">099 803 7033</a>
+              </div>
+            </div>
+
+            <div class="member-card bg-slate-50 rounded-xl p-5 flex items-center gap-4 border border-slate-100 hover:border-brand-200 hover:shadow-sm transition-all duration-300">
+              <div class="w-12 h-12 rounded-full bg-cyan-600 flex items-center justify-center font-bold text-white flex-shrink-0">JR</div>
+              <div class="min-w-0">
+                <p class="font-bold text-slate-900 truncate">Jelena Ruk</p>
+                <p class="text-xs text-slate-500">Informativna sekcija</p>
+                <a href="tel:+385916036650" class="text-xs text-brand-600 hover:underline">091 603 6650</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rukovodstva sekcija -->
+      <section class="py-24 bg-slate-50 fade-in-section">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-16">
+            <span class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block">Sekcije</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Rukovodstva sekcija</h2>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+              Svaka sekcija ima svoje rukovodstvo koje organizira aktivnosti i brine o članovima.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Izletnička i Vodička -->
+            <div class="bg-white rounded-2xl p-6 shadow-card border border-slate-100">
+              <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                <div class="w-10 h-10 rounded-lg bg-brand-600 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900">Izletnička i Vodička sekcija</h3>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-bold">DP</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">Domagoj Potrebica</p>
+                    <p class="text-xs text-slate-500">Predsjednik — 091 603 5948</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold">DP</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">Danijela Potrebica</p>
+                    <p class="text-xs text-slate-500">Zamjenica — 098 175 6529</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold">JM</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">Jerko Martinić</p>
+                    <p class="text-xs text-slate-500">Član — 098 715 360</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Informativna -->
+            <div class="bg-white rounded-2xl p-6 shadow-card border border-slate-100">
+              <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                <div class="w-10 h-10 rounded-lg bg-cyan-600 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900">Informativna sekcija</h3>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-cyan-600 text-white flex items-center justify-center text-xs font-bold">JR</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">Jelena Ruk</p>
+                    <p class="text-xs text-slate-500">Predsjednica — 091 603 6650</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold">JM</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">Jerko Martinić</p>
+                    <p class="text-xs text-slate-500">Zamjenik — 098 715 360</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold">MT</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">Milan Turkalj</p>
+                    <p class="text-xs text-slate-500">Član — 091 570 1392</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sekcija za održavanje -->
+            <div class="bg-white rounded-2xl p-6 shadow-card border border-slate-100">
+              <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                <div class="w-10 h-10 rounded-lg bg-red-600 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900">Sekcija za održavanje puteva</h3>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center text-xs font-bold">SM</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">Siniša Miličić</p>
+                    <p class="text-xs text-slate-500">Predsjednik — 095 396 3131</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold">JM</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">Jerko Martinić</p>
+                    <p class="text-xs text-slate-500">Zamjenik — 098 715 360</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold">JM</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">Josip Marasović</p>
+                    <p class="text-xs text-slate-500">Član — 091 569 0253</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sekcija Čevo -->
+            <div class="bg-white rounded-2xl p-6 shadow-card border border-slate-100">
+              <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                <div class="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900">Sekcija "Čevo"</h3>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold">SV</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">Siniša Vrbanić</p>
+                    <p class="text-xs text-slate-500">Predsjednik — 099 803 7033</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold">LD</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">Lidija Detić</p>
+                    <p class="text-xs text-slate-500">Zamjenica — 091 591 8102</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                  <div class="w-8 h-8 rounded-full bg-slate-300 text-slate-600 flex items-center justify-center text-xs font-bold">+3</div>
+                  <div>
+                    <p class="text-sm font-bold text-slate-900">J. Ostrički, Z. Kožić Čačić, G. Car</p>
+                    <p class="text-xs text-slate-500">Članovi</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Popis vodiča -->
+      <section class="py-24 bg-white fade-in-section">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-16">
+            <span class="text-brand-600 font-bold uppercase text-xs tracking-wider mb-2 block">Licencirani vodiči</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Popis vodiča</h2>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+              Naši licencirani vodiči HPS-a osiguravaju sigurnost i kvalitetu vođenja na izletima.
+            </p>
+          </div>
+
+          <!-- Stats -->
+          <div class="flex flex-wrap justify-center gap-6 mb-12">
+            <div class="bg-brand-600/10 px-6 py-3 rounded-full">
+              <span class="font-bold text-brand-600">28</span>
+              <span class="text-slate-600 ml-1">vodiča</span>
+            </div>
+            <div class="bg-blue-600/10 px-6 py-3 rounded-full">
+              <span class="font-bold text-blue-600">A</span>
+              <span class="text-slate-600 ml-1">ljetno planinarenje</span>
+            </div>
+            <div class="bg-amber-600/10 px-6 py-3 rounded-full">
+              <span class="font-bold text-amber-600">B</span>
+              <span class="text-slate-600 ml-1">zimsko planinarenje</span>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-card">
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead>
+                  <tr class="bg-slate-50 border-b border-slate-200">
+                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wide">#</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wide">Ime i prezime</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wide">Kategorija</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wide">E-pošta</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">1</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Valentina Barešić</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">vidovic.valentina@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">2</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Dubravka Červek</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">dubravka.cervek@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">3</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Vladimir Češnjaj</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">vladimir.cesnjaj@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">4</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Vladka Češnjaj</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">vladka.cesnjaj@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">5</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Dragica Dražić</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">ddrazi23@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">6</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Boris Druško</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">boris.drusko@vz.t-com.hr</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">7</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Dijana Gašparac</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">gasparac.d@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">8</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Helena Hajdin</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">helena.hajdin@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">9</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Maja Herceg</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">maja.herceg17@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">10</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Dalibor Ilić</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">dalibor.ilic@vz.t-com.hr</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">11</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Zoran Jeftić</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">jefta06@yahoo.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">12</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Ivančica Jež</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">ivancicajez@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">13</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Snježana Kolak</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">snjezana.kolak@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">14</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Marina Kopjar</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">kopjarm@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">15</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Josip Kovačić</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">lasta.miv@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">16</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Andreja Majhen</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">andreja.mjhn@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">17</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Josip Marasović</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">josip.marasovic.777@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">18</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Jerko Martinić</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">jerko.martinic3@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">19</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Vesna Mikac</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">vesnasaravesna787@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">20</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Ladislav Novak</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">ladislavnovak15@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">21</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Jasminka Ostrički</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">jasminka0909@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">22</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Paula Pospišil</td><td class="px-6 py-3"><span class="px-2 py-1 bg-amber-600/10 text-amber-600 text-xs font-bold rounded">Pripravnica</span></td><td class="px-6 py-3 text-sm text-slate-500">paula.pospisilmalic@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">23</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Tanja Potrebica</td><td class="px-6 py-3"><span class="px-2 py-1 bg-blue-600/10 text-blue-600 text-xs font-bold rounded">A + B</span></td><td class="px-6 py-3 text-sm text-slate-500">tanja.potrebica@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">24</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Miroslav Priher</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">miroslav.priher@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">25</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Jelena Ruk</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">jelena.ruk.vz@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">26</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Mirela Slunjski Sekol</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">mirela.slunjski@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">27</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Nikola Šebrek</td><td class="px-6 py-3"><span class="px-2 py-1 bg-purple-600/10 text-purple-600 text-xs font-bold rounded">A+B+C+D</span></td><td class="px-6 py-3 text-sm text-slate-500">makina118@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">28</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Ivanka Tomac</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">ivatomac1@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">29</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Milan Turkalj</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">turkaljmbg@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">30</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Siniša Vrbanić</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">s.vrbanic@bomark.hr</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">31</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Marija Vugrinec</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">vugrim@gmail.com</td></tr>
+                  <tr class="hover:bg-slate-50"><td class="px-6 py-3 text-sm text-slate-500">32</td><td class="px-6 py-3 text-sm font-medium text-slate-900">Zenil Vugrinec</td><td class="px-6 py-3"><span class="px-2 py-1 bg-brand-600/10 text-brand-600 text-xs font-bold rounded">A</span></td><td class="px-6 py-3 text-sm text-slate-500">zenil.vugrinec@gmail.com</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="py-16 bg-brand-600 fade-in-section">
+        <div class="container mx-auto px-6 text-center">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Postani dio tima</h2>
+          <p class="text-white/80 mb-8 max-w-xl mx-auto">
+            Želiš se uključiti u rad društva? Pridruži nam se i postani dio planinske obitelji.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="pristupnica.html" class="bg-white text-brand-600 px-8 py-3 rounded-xl font-bold hover:bg-slate-100 transition">Postani član</a>
+            <a href="sekcije.html" class="border-2 border-white/30 text-white px-8 py-3 rounded-xl font-bold hover:bg-white/10 transition">Pregledaj sekcije</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer (loaded dynamically) -->
+    <div id="site-footer"></div>
+
+    <!-- Shared Components -->
+    <script src="shared-components.js"></script>
+    <script>
+      // Initialize shared components
+      document.addEventListener('DOMContentLoaded', function() {
+        initSharedComponents('vodstvo');
+        
+        // Fade-in animation for sections
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

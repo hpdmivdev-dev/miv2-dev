@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dokumenti - HPD MIV Varaždin</title>
+    <meta
+      name="description"
+      content="Službeni dokumenti, statuti i pravilnici HPD MIV Varaždin."
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            colors: {
+              brand: {
+                50: "#DCE8E1",
+                100: "#FFCDD2",
+                600: "#2d4f39",
+                700: "#1e3a28",
+              },
+            },
+            boxShadow: {
+              card: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)",
+              hover: "0 20px 40px -5px rgba(0, 0, 0, 0.1)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Mega Menu */
+      .mega-menu {
+        transition: all 0.2s ease-in-out;
+        transform-origin: top;
+      }
+      .mega-menu.hidden {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        display: block;
+        pointer-events: none;
+      }
+      .mega-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .doc-row:hover {
+        background-color: #f8fafc;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Header (loaded dynamically) -->
+    <div id="site-header"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="relative bg-gradient-to-br from-brand-600 to-brand-700 py-24 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+          <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)"/>
+          </svg>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+          <nav class="mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center gap-2 text-sm">
+              <li><a href="index_sample.html" class="text-white/70 hover:text-white transition">Početna</a></li>
+              <li class="text-white/50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></li>
+              <li class="text-white font-medium">Dokumenti</li>
+            </ol>
+          </nav>
+
+          <div class="max-w-3xl">
+            <span class="inline-block px-4 py-1.5 bg-white/20 backdrop-blur rounded-full text-white text-xs font-bold uppercase tracking-wider mb-6">
+              Transparentnost
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
+              Službeni dokumenti
+            </h1>
+            <p class="text-xl text-white/80 leading-relaxed">
+              Ovdje možete pronaći Statut, pravilnike, financijska izvješća i ostale važne dokumente društva.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Filter (Optional) -->
+      <section class="py-12 bg-white -mt-12 relative z-20">
+        <div class="container mx-auto px-6">
+          <div class="bg-white rounded-2xl shadow-hover p-4 flex flex-wrap gap-2 items-center justify-center">
+            <button class="px-6 py-2 bg-brand-600 text-white rounded-full text-sm font-bold transition">Svi dokumenti</button>
+            <button class="px-6 py-2 text-slate-600 hover:bg-slate-50 rounded-full text-sm font-bold transition">Statut</button>
+            <button class="px-6 py-2 text-slate-600 hover:bg-slate-50 rounded-full text-sm font-bold transition">Pravilnici</button>
+            <button class="px-6 py-2 text-slate-600 hover:bg-slate-50 rounded-full text-sm font-bold transition">Financije</button>
+            <button class="px-6 py-2 text-slate-600 hover:bg-slate-50 rounded-full text-sm font-bold transition">Zapisnici</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Document List -->
+      <section class="py-24 bg-slate-50 fade-in-section">
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto">
+            
+            <!-- Group: Statut -->
+            <div class="mb-12">
+              <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <span class="w-8 h-1 bg-brand-600 rounded-full"></span>
+                Statut i temeljne odluke
+              </h3>
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-card divide-y divide-slate-100 overflow-hidden">
+                <!-- Doc 1 -->
+                <a href="#" class="doc-row p-5 flex items-center justify-between group transition">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-slate-800">Statut HPD MIV Varaždin (pročišćeni tekst)</div>
+                      <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">PDF • 1.2 MB • Ažurirano 2022.</div>
+                    </div>
+                  </div>
+                  <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  </div>
+                </a>
+                <!-- Doc 2 -->
+                <a href="#" class="doc-row p-5 flex items-center justify-between group transition">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-slate-800">Odluka o izmjenama i dopunama Statuta 2016.</div>
+                      <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">PDF • 450 KB</div>
+                    </div>
+                  </div>
+                  <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  </div>
+                </a>
+                <!-- Doc 3 -->
+                <a href="#" class="doc-row p-5 flex items-center justify-between group transition">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-slate-800">Odluka o izmjenama i dopunama Statuta 24.02.21.</div>
+                      <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">PDF • 680 KB</div>
+                    </div>
+                  </div>
+                  <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Group: Pravilnici -->
+            <div class="mb-12">
+              <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <span class="w-8 h-1 bg-amber-500 rounded-full"></span>
+                Pravilnici i upute
+              </h3>
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-card divide-y divide-slate-100 overflow-hidden">
+                <!-- Doc 4 -->
+                <a href="#" class="doc-row p-5 flex items-center justify-between group transition">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-slate-800">Pravilnik o radu sekcija</div>
+                      <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">PDF • 320 KB</div>
+                    </div>
+                  </div>
+                  <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  </div>
+                </a>
+                <!-- Doc 5 -->
+                <a href="#" class="doc-row p-5 flex items-center justify-between group transition">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-slate-800">Uputstva za planinarske vodiče</div>
+                      <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">PDF • 210 KB</div>
+                    </div>
+                  </div>
+                  <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Group: Financije -->
+            <div class="mb-12">
+              <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <span class="w-8 h-1 bg-green-600 rounded-full"></span>
+                Financijska izvješća
+              </h3>
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-card divide-y divide-slate-100 overflow-hidden">
+                <!-- Doc 6 -->
+                <a href="#" class="doc-row p-5 flex items-center justify-between group transition">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center text-green-600 group-hover:bg-green-600 group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-slate-800">Godišnje financijsko izvješće za 2024.</div>
+                      <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">PDF • 890 KB</div>
+                    </div>
+                  </div>
+                  <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  </div>
+                </a>
+                <!-- Doc 7 -->
+                <a href="#" class="doc-row p-5 flex items-center justify-between group transition">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center text-green-600 group-hover:bg-green-600 group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-slate-800">Plan rada i financijski plan za 2025.</div>
+                      <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">PDF • 540 KB</div>
+                    </div>
+                  </div>
+                  <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Group: Ostalo -->
+            <div class="mb-12">
+              <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <span class="w-8 h-1 bg-slate-400 rounded-full"></span>
+                Ostali obrasci i dokumenti
+              </h3>
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-card divide-y divide-slate-100 overflow-hidden">
+                <!-- Doc 8 -->
+                <a href="#" class="doc-row p-5 flex items-center justify-between group transition">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-slate-50 flex items-center justify-center text-slate-600 group-hover:bg-slate-600 group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-slate-800">Pristupnica za nove članove (tiskani oblik)</div>
+                      <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">PDF • 150 KB</div>
+                    </div>
+                  </div>
+                  <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  </div>
+                </a>
+                <!-- Doc 9 -->
+                <a href="#" class="doc-row p-5 flex items-center justify-between group transition">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-slate-50 flex items-center justify-center text-slate-600 group-hover:bg-slate-600 group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-slate-800">Obrazac za prijavu izleta</div>
+                      <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">DOCX • 80 KB</div>
+                    </div>
+                  </div>
+                  <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  </div>
+                </a>
+                <!-- Doc 10 -->
+                <a href="#" class="doc-row p-5 flex items-center justify-between group transition">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-slate-50 flex items-center justify-center text-slate-600 group-hover:bg-slate-600 group-hover:text-white transition">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-slate-800">GDPR privola za članove</div>
+                      <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">PDF • 120 KB</div>
+                    </div>
+                  </div>
+                  <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="py-16 bg-brand-600 fade-in-section">
+        <div class="container mx-auto px-6 text-center">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            Trebate dodatne informacije?
+          </h2>
+          <p class="text-white/80 mb-8 max-w-xl mx-auto">
+            Ako niste pronašli dokument koji tražite, slobodno nas kontaktirajte putem e-maila ili nas posjetite srijedom.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:hpdmiv@gmail.com" class="bg-white text-brand-600 px-8 py-3 rounded-xl font-bold hover:bg-slate-100 transition">
+              Pošalji upit
+            </a>
+            <a href="index_sample.html" class="border-2 border-white/30 text-white px-8 py-3 rounded-xl font-bold hover:bg-white/10 transition">
+              Povratak na početnu
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (loaded dynamically) -->
+    <div id="site-footer"></div>
+
+    <!-- Shared Components -->
+    <script src="shared-components.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        initSharedComponents('dokumenti');
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,722 @@
+﻿<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vikend na Velebitu - HPD MIV Varaždin</title>
+    <meta
+      name="description"
+      content="Detalji izleta - Vikend na Velebitu. Dvodnevna avantura s HPD MIV Varaždin."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            colors: {
+              brand: {
+                50: "#DCE8E1",
+                100: "#FFCDD2",
+                600: "#2d4f39",
+                700: "#B71C1C",
+              },
+              slate: { 850: "#1e293b", 900: "#0f172a" },
+            },
+            boxShadow: {
+              soft: "0 20px 40px -15px rgba(0, 0, 0, 0.05)",
+              card: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)",
+              hover: "0 20px 40px -5px rgba(0, 0, 0, 0.1)",
+              mega: "0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.04)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Mega Menu */
+      .mega-menu {
+        transition: all 0.2s ease-in-out;
+        transform-origin: top;
+      }
+      .mega-menu.hidden {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        display: block;
+        pointer-events: none;
+      }
+      .mega-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* Tab Panel Animation */
+      .day-panel {
+        display: none;
+        animation: fadeSlideIn 0.4s ease-out;
+      }
+      .day-panel.active {
+        display: block;
+      }
+
+      @keyframes fadeSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Fade in on scroll */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Info card hover */
+      .info-card {
+        transition: all 0.3s ease;
+      }
+      .info-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Hero parallax */
+      .hero-image {
+        transition: transform 0.1s ease-out;
+      }
+
+      /* Day tab button */
+      .day-tab {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      .day-tab::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background: #2d4f39;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+        border-radius: 3px 3px 0 0;
+      }
+      .day-tab.active::after {
+        width: 100%;
+      }
+      .day-tab.active {
+        color: #2d4f39;
+        font-weight: 700;
+      }
+
+      /* Pulse animation for CTA */
+      @keyframes pulse-subtle {
+        0%, 100% {
+          box-shadow: 0 0 0 0 rgba(45, 79, 57, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 0 12px rgba(45, 79, 57, 0);
+        }
+      }
+      .pulse-cta {
+        animation: pulse-subtle 2s infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50">
+    <!-- Header (loaded dynamically) -->
+    <div id="site-header"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="relative h-[65vh] min-h-[500px] overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+          <img
+            id="heroImage"
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop"
+            alt="Velebit planina"
+            class="hero-image w-full h-full object-cover"
+          />
+          <!-- Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative h-full container mx-auto px-6 flex flex-col justify-end pb-12">
+          <!-- Breadcrumb -->
+          <nav class="mb-6" aria-label="Breadcrumb">
+            <ol class="flex items-center gap-2 text-sm">
+              <li>
+                <a href="index_sample.html" class="text-white/70 hover:text-white transition">Početna</a>
+              </li>
+              <li class="text-white/50">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </li>
+              <li>
+                <a href="#" class="text-white/70 hover:text-white transition">Izleti</a>
+              </li>
+              <li class="text-white/50">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </li>
+              <li id="breadcrumb-title" class="text-white font-medium">Vikend na Velebitu</li>
+            </ol>
+          </nav>
+
+          <!-- Trip Type Badge -->
+          <div class="flex items-center gap-3 mb-4">
+            <span id="trip-type-badge" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-600/90 backdrop-blur text-white text-xs font-bold uppercase tracking-wide">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+              </svg>
+              Višednevni Izlet
+            </span>
+            <span id="section-badge" class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/20 backdrop-blur text-white text-xs font-bold">
+              Visokogorska sekcija
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h1 id="trip-title" class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight max-w-4xl">
+            Vikend na Velebitu – Alan i Zavižan
+          </h1>
+
+          <!-- Date Badge -->
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 backdrop-blur border border-white/20">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span id="date-badge" class="text-white font-bold">15. – 16. veljače 2026.</span>
+            </div>
+            <span class="md:inline-flex items-center gap-2 text-white/80 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span id="duration-badge">2 dana / 1 noć</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Info Cards Section -->
+      <section class="py-12 bg-white fade-in-section">
+        <div class="container mx-auto px-6">
+          <!-- Negative margin to overlap hero -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 -mt-20 relative z-10">
+            <!-- Transport -->
+            <div class="info-card bg-white rounded-2xl p-5 shadow-card border border-slate-100">
+              <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                </svg>
+              </div>
+              <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Prijevoz</p>
+              <p id="transport-value" class="text-sm font-bold text-slate-900">Autobusom</p>
+            </div>
+
+            <!-- Difficulty -->
+            <div class="info-card bg-white rounded-2xl p-5 shadow-card border border-slate-100">
+              <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600 mb-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Težina</p>
+              <p id="difficulty-value" class="text-sm font-bold text-slate-900">K2 / T2</p>
+              <p class="text-[10px] text-slate-500 mt-0.5">Umjereno zahtjevno</p>
+            </div>
+
+            <!-- Member Price -->
+            <div class="info-card bg-white rounded-2xl p-5 shadow-card border border-slate-100 relative overflow-hidden">
+              <div class="absolute top-0 right-0 bg-brand-600 text-white text-[9px] font-bold px-2 py-1 rounded-bl-lg">ČLANOVI</div>
+              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-green-600 mb-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Cijena</p>
+              <p id="member-price" class="text-2xl font-extrabold text-brand-600">45 €</p>
+            </div>
+
+            <!-- Guest Price -->
+            <div class="info-card bg-white rounded-2xl p-5 shadow-card border border-slate-100 relative overflow-hidden">
+              <div class="absolute top-0 right-0 bg-slate-500 text-white text-[9px] font-bold px-2 py-1 rounded-bl-lg">GOSTI</div>
+              <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 mb-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Cijena</p>
+              <p id="guest-price" class="text-2xl font-extrabold text-slate-600">60 €</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Details Section -->
+      <section class="py-12 bg-slate-50 fade-in-section">
+        <div class="container mx-auto px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left: Main Content -->
+            <div class="lg:col-span-2">
+              <!-- Day Tabs -->
+              <div id="day-tabs-section" class="bg-white rounded-2xl shadow-card border border-slate-100 overflow-hidden">
+                <!-- Tab Navigation -->
+                <div id="day-tabs" class="flex border-b border-slate-100">
+                  <button
+                    onclick="switchDay(1)"
+                    class="day-tab active flex-1 py-5 px-6 text-center text-sm font-medium text-slate-600 hover:text-brand-600 transition"
+                    data-day="1"
+                  >
+                    <span class="block text-xs text-slate-400 mb-1">Subota</span>
+                    <span class="block font-bold">15. veljače</span>
+                  </button>
+                  <button
+                    onclick="switchDay(2)"
+                    class="day-tab flex-1 py-5 px-6 text-center text-sm font-medium text-slate-600 hover:text-brand-600 transition"
+                    data-day="2"
+                  >
+                    <span class="block text-xs text-slate-400 mb-1">Nedjelja</span>
+                    <span class="block font-bold">16. veljače</span>
+                  </button>
+                </div>
+
+                <!-- Tab Panels -->
+                <div id="day-panels" class="p-8">
+                  <!-- Day 1 -->
+                  <div id="day-1" class="day-panel active">
+                    <div class="flex items-center gap-3 mb-6">
+                      <div class="w-12 h-12 rounded-full bg-brand-600 flex items-center justify-center text-white font-bold text-lg">1</div>
+                      <div>
+                        <h3 class="text-xl font-bold text-slate-900">Polazak i uspon</h3>
+                        <p class="text-sm text-slate-500">Subota, 15. veljače 2026.</p>
+                      </div>
+                    </div>
+                    <div class="prose prose-slate max-w-none">
+                      <p class="text-slate-600 leading-relaxed mb-4">
+                        <strong>06:00</strong> – Polazak autobusom s parkinga kod Mercatora u Varaždinu. Vožnja prema Velebitu s kratkim odmorima.
+                      </p>
+                      <p class="text-slate-600 leading-relaxed mb-4">
+                        <strong>10:30</strong> – Dolazak na polazište. Priprema opreme i kratki briefing s vodičima.
+                      </p>
+                      <p class="text-slate-600 leading-relaxed mb-4">
+                        <strong>11:00</strong> – Početak uspona prema vrhu Alan (1601 m). Ruta vodi kroz prekrasnu bukovu šumu i krške predjele.
+                      </p>
+                      <p class="text-slate-600 leading-relaxed mb-4">
+                        <strong>14:00</strong> – Dolazak na vrh. Pauza za ručak s panoramskim pogledom na Jadransko more i otoke.
+                      </p>
+                      <p class="text-slate-600 leading-relaxed mb-4">
+                        <strong>15:30</strong> – Nastavak prema planinarskom domu Zavižan. Spust grebenom s pogledom na Liku.
+                      </p>
+                      <p class="text-slate-600 leading-relaxed">
+                        <strong>18:00</strong> – Dolazak u dom. Smještaj i večera. Druženje uz pejzaže Velebita.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Day 2 -->
+                  <div id="day-2" class="day-panel">
+                    <div class="flex items-center gap-3 mb-6">
+                      <div class="w-12 h-12 rounded-full bg-brand-600 flex items-center justify-center text-white font-bold text-lg">2</div>
+                      <div>
+                        <h3 class="text-xl font-bold text-slate-900">Botanički vrt i povratak</h3>
+                        <p class="text-sm text-slate-500">Nedjelja, 16. veljače 2026.</p>
+                      </div>
+                    </div>
+                    <div class="prose prose-slate max-w-none">
+                      <p class="text-slate-600 leading-relaxed mb-4">
+                        <strong>08:00</strong> – Doručak u planinarskom domu.
+                      </p>
+                      <p class="text-slate-600 leading-relaxed mb-4">
+                        <strong>09:30</strong> – Posjet Velebitskom botaničkom vrtu. Obilazak endemskih biljaka karakterističnih za ovaj prostor.
+                      </p>
+                      <p class="text-slate-600 leading-relaxed mb-4">
+                        <strong>11:00</strong> – Lagana šetnja okolnim stazama s pogledom na Liku i primorski dio.
+                      </p>
+                      <p class="text-slate-600 leading-relaxed mb-4">
+                        <strong>13:00</strong> – Ručak i priprema za povratak.
+                      </p>
+                      <p class="text-slate-600 leading-relaxed mb-4">
+                        <strong>14:00</strong> – Polazak autobusom prema Varaždinu.
+                      </p>
+                      <p class="text-slate-600 leading-relaxed">
+                        <strong>~20:00</strong> – Očekivani dolazak u Varaždin.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Single Day Section (for single-day trips) -->
+              <div id="single-day-section" class="bg-white rounded-2xl shadow-card border border-slate-100 overflow-hidden p-8 hidden">
+                <div id="single-day-description" class="prose prose-slate max-w-none">
+                </div>
+              </div>
+
+              <!-- Notes Section -->
+              <div id="notes-section" class="mt-8 bg-amber-50 border border-amber-200 rounded-2xl p-6 fade-in-section">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 flex-shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-amber-900 mb-2">Napomena</h4>
+                    <p id="notes-content" class="text-amber-800 text-sm leading-relaxed">
+                      <strong>Obavezna zimska oprema:</strong> dereze, cepin, topla odjeća u slojevima. Prenoćište u domu je uključeno u cijenu. Potrebno je ponijeti vreću za spavanje ili unajmiti u domu.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Sidebar -->
+            <div class="lg:col-span-1">
+              <!-- Info Box -->
+              <div class="bg-white rounded-2xl shadow-card border border-slate-100 p-6 sticky top-8">
+                <h3 class="font-bold text-slate-900 mb-6 flex items-center gap-2">
+                  <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  Detalji Izleta
+                </h3>
+
+                <div class="space-y-5">
+                  <!-- Departure -->
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 flex-shrink-0">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      </svg>
+                    </div>
+                    <div id="departure-info">
+                      <p class="text-xs font-bold text-slate-400 uppercase tracking-wide">Polazak</p>
+                      <p class="text-sm font-medium text-slate-900">Parking Mercator, Varaždin</p>
+                      <p class="text-xs text-slate-500">06:00 sati</p>
+                    </div>
+                  </div>
+
+                  <!-- Return -->
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 flex-shrink-0">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                      </svg>
+                    </div>
+                    <div id="return-info">
+                      <p class="text-xs font-bold text-slate-400 uppercase tracking-wide">Povratak</p>
+                      <p class="text-sm font-medium text-slate-900">Nedjelja, ~20:00</p>
+                    </div>
+                  </div>
+
+                  <!-- Food -->
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 flex-shrink-0">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                      </svg>
+                    </div>
+                    <div id="food-info">
+                      <p class="text-xs font-bold text-slate-400 uppercase tracking-wide">Prehrana</p>
+                      <p class="text-sm font-medium text-slate-900">Doručak i večera u domu</p>
+                      <p class="text-xs text-slate-500">Ručak - vlastiti</p>
+                    </div>
+                  </div>
+
+                  <!-- Guides -->
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 flex-shrink-0">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                      </svg>
+                    </div>
+                    <div id="guides-info">
+                      <p class="text-xs font-bold text-slate-400 uppercase tracking-wide">Vodiči</p>
+                      <p class="text-sm font-medium text-slate-900">Ivan Horvat</p>
+                      <p class="text-sm font-medium text-slate-900">Ana Kovač</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Divider -->
+                <hr class="my-6 border-slate-100" />
+
+                <!-- Difficulty Explanation -->
+                <div class="bg-slate-50 rounded-xl p-4 mb-6">
+                  <p class="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3">Objašnjenje težine</p>
+                  <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                      <span id="difficulty-k" class="px-2 py-0.5 rounded bg-orange-100 text-orange-700 text-xs font-bold">K2</span>
+                      <span class="text-xs text-slate-600">Umjereno teško, 5-7h hoda</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span id="difficulty-t" class="px-2 py-0.5 rounded bg-orange-100 text-orange-700 text-xs font-bold">T2</span>
+                      <span class="text-xs text-slate-600">Lagano penjanje, povremeno ruke</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CTA Button -->
+                <button class="pulse-cta w-full bg-brand-600 hover:bg-brand-700 text-white py-4 rounded-xl font-bold text-lg transition transform hover:-translate-y-0.5 shadow-lg">
+                  Prijavi se na izlet
+                </button>
+
+                <p class="text-center text-xs text-slate-400 mt-3">
+                  Rok prijave: 12. veljače 2026.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Back to Calendar CTA -->
+      <section class="py-12 bg-white fade-in-section">
+        <div class="container mx-auto px-6 text-center">
+          <a
+            href="index_sample.html#izleti"
+            class="inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-700 transition group"
+          >
+            <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Povratak na kalendar izleta
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (loaded dynamically) -->
+    <div id="site-footer"></div>
+
+    <!-- Shared Components -->
+    <script src="shared-components.js"></script>
+
+    <script>
+      // Get trip ID from URL
+      function getTripIdFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('id') || '1';
+      }
+
+      // Load trip data and populate page
+      function loadTripData() {
+        const tripId = getTripIdFromUrl();
+        const trip = getTripById(tripId);
+        
+        if (!trip) {
+          console.error('Trip not found:', tripId);
+          return;
+        }
+
+        // Update title
+        document.title = `${trip.tripName} - HPD MIV Varaždin`;
+        
+        // Update hero image
+        document.getElementById('heroImage').src = trip.image;
+        document.getElementById('heroImage').alt = trip.tripName;
+        
+        // Update breadcrumb
+        document.getElementById('breadcrumb-title').textContent = trip.tripName;
+        
+        // Update trip type badge
+        const tripTypeBadge = document.getElementById('trip-type-badge');
+        if (trip.tripType === 'multi-day') {
+          tripTypeBadge.innerHTML = `
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+            Višednevni Izlet
+          `;
+        } else {
+          tripTypeBadge.innerHTML = `
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            Jednodnevni Izlet
+          `;
+        }
+        
+        // Update section badge
+        document.getElementById('section-badge').textContent = trip.section;
+        
+        // Update title
+        document.getElementById('trip-title').textContent = trip.tripName;
+        
+        // Update dates
+        if (trip.tripType === 'multi-day') {
+          const startDate = formatDate(trip.startDate);
+          const endDate = formatDate(trip.endDate);
+          const dayCount = trip.dayDescriptions ? trip.dayDescriptions.length : 2;
+          document.getElementById('date-badge').textContent = `${startDate} – ${endDate} 2026.`;
+          document.getElementById('duration-badge').textContent = `${dayCount} dana / ${dayCount - 1} ${dayCount - 1 === 1 ? 'noć' : 'noći'}`;
+          document.getElementById('duration-badge').parentElement.classList.remove('hidden');
+        } else {
+          document.getElementById('date-badge').textContent = `${formatDate(trip.tripDate)} 2026.`;
+          document.getElementById('duration-badge').parentElement.classList.add('hidden');
+        }
+        
+        // Update info cards
+        document.getElementById('transport-value').textContent = trip.transport;
+        document.getElementById('difficulty-value').textContent = `${trip.fitnessDifficulty} / ${trip.technicalDifficulty}`;
+        document.getElementById('member-price').textContent = trip.memberPrice === 0 ? 'Besplatno' : `${trip.memberPrice} €`;
+        document.getElementById('guest-price').textContent = trip.nonMemberPrice === 0 ? 'Besplatno' : `${trip.nonMemberPrice} €`;
+        
+        // Update sidebar info
+        document.getElementById('departure-info').innerHTML = `
+          <p class="text-sm font-medium text-slate-900">${trip.departure.split(' - ')[0]}</p>
+          <p class="text-xs text-slate-500">${trip.departure.split(' - ')[1] || ''}</p>
+        `;
+        document.getElementById('return-info').innerHTML = `
+          <p class="text-sm font-medium text-slate-900">${trip.returnInfo}</p>
+        `;
+        document.getElementById('food-info').innerHTML = `
+          <p class="text-sm font-medium text-slate-900">${trip.food}</p>
+        `;
+        
+        // Update guides
+        const guidesHtml = trip.guides.map(g => `<p class="text-sm font-medium text-slate-900">${g}</p>`).join('');
+        document.getElementById('guides-info').innerHTML = guidesHtml;
+        
+        // Update difficulty explanation
+        document.getElementById('difficulty-k').textContent = trip.fitnessDifficulty;
+        document.getElementById('difficulty-t').textContent = trip.technicalDifficulty;
+        
+        // Update notes section
+        const notesSection = document.getElementById('notes-section');
+        if (trip.notes) {
+          notesSection.classList.remove('hidden');
+          document.getElementById('notes-content').textContent = trip.notes;
+        } else {
+          notesSection.classList.add('hidden');
+        }
+        
+        // Update day tabs and content
+        const tabsContainer = document.getElementById('day-tabs');
+        const panelsContainer = document.getElementById('day-panels');
+        const dayTabsSection = document.getElementById('day-tabs-section');
+        const singleDaySection = document.getElementById('single-day-section');
+        
+        if (trip.tripType === 'multi-day' && trip.dayDescriptions && trip.dayDescriptions.length > 0) {
+          dayTabsSection.classList.remove('hidden');
+          singleDaySection.classList.add('hidden');
+          
+          // Generate tabs
+          tabsContainer.innerHTML = trip.dayDescriptions.map((day, index) => {
+            const dayName = getDayName(day.date);
+            const dayDate = formatDate(day.date);
+            return `
+              <button
+                onclick="switchDay(${index + 1})"
+                class="day-tab ${index === 0 ? 'active' : ''} flex-1 py-5 px-6 text-center text-sm font-medium text-slate-600 hover:text-brand-600 transition"
+                data-day="${index + 1}"
+              >
+                <span class="block text-xs text-slate-400 mb-1">${dayName}</span>
+                <span class="block font-bold">${dayDate}</span>
+              </button>
+            `;
+          }).join('');
+          
+          // Generate panels
+          panelsContainer.innerHTML = trip.dayDescriptions.map((day, index) => {
+            const dayName = getDayName(day.date);
+            const dayDate = formatDate(day.date);
+            return `
+              <div id="day-${index + 1}" class="day-panel ${index === 0 ? 'active' : ''}">
+                <div class="flex items-center gap-3 mb-6">
+                  <div class="w-12 h-12 rounded-full bg-brand-600 flex items-center justify-center text-white font-bold text-lg">${index + 1}</div>
+                  <div>
+                    <h3 class="text-xl font-bold text-slate-900">Dan ${index + 1}</h3>
+                    <p class="text-sm text-slate-500">${dayName}, ${dayDate} 2026.</p>
+                  </div>
+                </div>
+                <div class="prose prose-slate max-w-none">
+                  ${day.description}
+                </div>
+              </div>
+            `;
+          }).join('');
+        } else {
+          // Single day trip - show description
+          dayTabsSection.classList.add('hidden');
+          singleDaySection.classList.remove('hidden');
+          document.getElementById('single-day-description').innerHTML = `
+            <p class="text-slate-600 leading-relaxed">${trip.description}</p>
+          `;
+        }
+      }
+
+      // Day tab switching
+      function switchDay(dayNumber) {
+        // Hide all panels
+        document.querySelectorAll('.day-panel').forEach(panel => {
+          panel.classList.remove('active');
+        });
+        
+        // Remove active state from all tabs
+        document.querySelectorAll('.day-tab').forEach(tab => {
+          tab.classList.remove('active');
+        });
+        
+        // Show selected panel
+        document.getElementById(`day-${dayNumber}`).classList.add('active');
+        
+        // Activate selected tab
+        document.querySelector(`.day-tab[data-day="${dayNumber}"]`).classList.add('active');
+      }
+
+      // Mega Menu Navigation
+    </script>
+
+    <script>
+      // Initialize shared components
+      document.addEventListener('DOMContentLoaded', function() {
+        initSharedComponents('trip');
+        
+        // Load trip data for this page
+        if (typeof loadTripData !== 'undefined') {
+          loadTripData();
+        }
+
+        // Fade-in animation for sections
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
