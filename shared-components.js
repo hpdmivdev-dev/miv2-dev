@@ -549,7 +549,7 @@ function getScrollToTopHtml() {
   return `
     <button
       id="scroll-to-top"
-      class="fixed bottom-8 right-8 w-12 h-12 bg-slate-900 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform translate-y-20 opacity-0 z-50 hover:bg-slate-800 hover:-translate-y-1"
+      class="fixed bottom-8 right-8 w-12 h-12 bg-slate-900 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform translate-y-20 opacity-0 invisible pointer-events-none z-50 hover:bg-slate-800 hover:-translate-y-1"
       aria-label="Scroll to top"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -631,6 +631,15 @@ function initFadeInObserver() {
 function initCustomScrollbar() {
   const style = document.createElement('style');
   style.textContent = `
+    /* Global Reset to prevent Horizontal Scroll */
+    html, body {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      position: relative;
+      width: 100%;
+      -webkit-overflow-scrolling: touch;
+    }
+
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 14px;
@@ -698,10 +707,10 @@ function initScrollToTop() {
   // Show/hide button on scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > 400) {
-      scrollBtn.classList.remove('translate-y-20', 'opacity-0');
+      scrollBtn.classList.remove('translate-y-20', 'opacity-0', 'invisible', 'pointer-events-none');
       scrollBtn.classList.add('translate-y-0', 'opacity-100');
     } else {
-      scrollBtn.classList.add('translate-y-20', 'opacity-0');
+      scrollBtn.classList.add('translate-y-20', 'opacity-0', 'invisible', 'pointer-events-none');
       scrollBtn.classList.remove('translate-y-0', 'opacity-100');
     }
   });
