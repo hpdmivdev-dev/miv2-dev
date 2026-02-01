@@ -144,11 +144,100 @@ function getHeaderHtml(activePage) {
             >Kontakt</a>
           </div>
 
-          <!-- CTA -->
-          <a
-            href="pristupnica.html"
-            class="bg-slate-900 text-white px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-slate-800 transition"
-          >Postani Član</a>
+          <!-- CTA (Desktop Only) -->
+          <div class="hidden md:block">
+            <a
+              href="pristupnica.html"
+              class="bg-slate-900 text-white px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-slate-800 transition"
+            >Postani Član</a>
+          </div>
+
+          <!-- Mobile Toggle (Hamburger) -->
+          <button
+            id="mobile-menu-btn"
+            onclick="toggleMobileMenu()"
+            class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none z-[60]"
+            aria-label="Toggle menu"
+          >
+            <span class="hamburger-line line-1 w-6 h-0.5 bg-slate-900 rounded-full transition-all duration-300"></span>
+            <span class="hamburger-line line-2 w-6 h-0.5 bg-slate-900 rounded-full transition-all duration-300"></span>
+            <span class="hamburger-line line-3 w-6 h-0.5 bg-slate-900 rounded-full transition-all duration-300"></span>
+          </button>
+        </div>
+
+        <!-- MOBILE MENU OVERLAY -->
+        <div
+          id="mobile-menu"
+          class="fixed inset-0 bg-white z-[55] md:hidden transform transition-all duration-300 opacity-0 pointer-events-none overflow-y-auto"
+        >
+          <div class="container mx-auto px-6 pt-6 pb-12">
+            <!-- Mobile Menu Top Bar -->
+            <div class="flex justify-between items-center mb-12">
+              <a href="index.html" class="flex items-center gap-2">
+                <img src="materials/logo.png" alt="HPD MIV" class="h-12 w-auto" />
+              </a>
+            </div>
+
+            <div class="flex flex-col gap-8">
+              <!-- Izleti Group -->
+              <div>
+                <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Plan Izleta</h3>
+                <div class="flex flex-col gap-4">
+                  <a href="index.html#izleti" class="text-lg font-bold text-slate-900 hover:text-brand-600 transition">Kalendar 2025</a>
+                  <a href="https://hpdmiv.hr/wp-content/uploads/2025/12/hpdmiv.hr-hpdmiv-plan-izleta-2026-v22-hpdmiv-plan-izleta-2026-v22.pdf" target="_blank" class="text-lg font-bold text-slate-900 hover:text-brand-600 transition flex items-center gap-2">
+                    Godišnji plan izleta
+                    <svg class="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                  </a>
+                  <a href="rules.html" class="text-lg font-bold text-slate-900 hover:text-brand-600 transition">Pravila i Težine</a>
+                </div>
+              </div>
+
+              <!-- Info Letci Group -->
+              <div>
+                <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Info Letci</h3>
+                <div class="flex flex-col gap-4">
+                  <a href="https://hpdmiv.hr/wp-content/uploads/2026/01/hpdmiv.hr-info-list-veljaca-info-list-veljaca.pdf" target="_blank" class="text-lg font-bold text-slate-900 hover:text-brand-600 transition">Mjesečni info letak</a>
+                  <a href="https://hpdmiv.hr/wp-content/uploads/2025/07/hpdmiv.hr-hpd-miv-varazdin-g.info-2025-hpd-miv-varazdin-g.info-2025-2.pdf" target="_blank" class="text-lg font-bold text-slate-900 hover:text-brand-600 transition">Godišnji info letak</a>
+                </div>
+              </div>
+
+              <!-- Članstvo Group -->
+              <div>
+                <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Članstvo</h3>
+                <div class="flex flex-col gap-4">
+                  <a href="pristupnica.html" class="text-lg font-bold text-slate-900 hover:text-brand-600 transition">Postani Član</a>
+                  <a href="ops.html" class="text-lg font-bold text-slate-900 hover:text-brand-600 transition">Planinarska Škola</a>
+                </div>
+              </div>
+
+              <!-- Društvo Group -->
+              <div>
+                <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">O Društvu</h3>
+                <div class="grid grid-cols-2 gap-x-4 gap-y-4">
+                  <a href="povijest.html" class="text-sm font-bold text-slate-600 hover:text-brand-600 transition">Povijest</a>
+                  <a href="vodstvo.html" class="text-sm font-bold text-slate-600 hover:text-brand-600 transition">Vodstvo</a>
+                  <a href="sekcije.html" class="text-sm font-bold text-slate-600 hover:text-brand-600 transition">Sekcije</a>
+                  <a href="dokumenti.html" class="text-sm font-bold text-slate-600 hover:text-brand-600 transition">Dokumenti</a>
+                </div>
+              </div>
+
+              <hr class="border-slate-100 my-2" />
+
+              <!-- Main Links -->
+              <div class="flex flex-col gap-4">
+                <a href="gallery.html" class="text-xl font-extrabold text-slate-900 ${isGalerijaActive ? 'text-brand-600' : ''}">Galerija</a>
+                <a href="news.html" class="text-xl font-extrabold text-slate-900 ${isObavijestiActive ? 'text-brand-600' : ''}">Obavijesti</a>
+                <a href="contact.html" class="text-xl font-extrabold text-slate-900 ${isKontaktActive ? 'text-brand-600' : ''}">Kontakt</a>
+              </div>
+
+              <div class="mt-4">
+                <a
+                  href="pristupnica.html"
+                  class="block w-full text-center bg-slate-900 text-white py-4 rounded-xl font-bold shadow-lg"
+                >Učlani se</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- MEGA MENU: IZLETI -->
@@ -585,6 +674,19 @@ function toggleMenu(menuId) {
   }
 }
 
+// =============================================================================
+// MOBILE MENU FUNCTIONS
+// =============================================================================
+function toggleMobileMenu() {
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const body = document.body;
+
+  btn.classList.toggle('mobile-menu-active');
+  menu.classList.toggle('active');
+  body.classList.toggle('menu-open');
+}
+
 // Close menus when clicking outside
 document.addEventListener("click", function (event) {
   const isClickInsideNav = event.target.closest("nav");
@@ -596,6 +698,17 @@ document.addEventListener("click", function (event) {
         menu.classList.add("hidden");
       }, 200);
     });
+  }
+
+  // Close mobile menu if specifically clicked on a link inside it
+  if (event.target.closest("#mobile-menu a")) {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const body = document.body;
+    
+    btn.classList.remove('mobile-menu-active');
+    menu.classList.remove('active');
+    body.classList.remove('menu-open');
   }
 });
 
@@ -638,6 +751,28 @@ function initCustomScrollbar() {
       position: relative;
       width: 100%;
       -webkit-overflow-scrolling: touch;
+    }
+
+    /* Mobile Menu Lock */
+    body.menu-open {
+      overflow: hidden !important;
+    }
+
+    /* Hamburger Animation */
+    .mobile-menu-active .line-1 {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-menu-active .line-2 {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    .mobile-menu-active .line-3 {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    #mobile-menu.active {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     /* Custom Scrollbar */
