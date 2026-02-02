@@ -547,7 +547,7 @@ function getFooterHtml() {
               <img src="materials/logo2.png" alt="HPD MIV" class="h-20" />
             </a>
             <p class="text-slate-400 text-sm mb-6 leading-relaxed">
-              Hrvatsko planinarsko društvo "MIV" Varaždin - više od 40 godina tradicije, planinarstva i zajedništva.
+              <span class="text-white font-bold">Hrvatsko planinarsko društvo "MIV" Varaždin</span> - više od 40 godina tradicije, planinarstva i zajedništva.
             </p>
             <div class="flex gap-3">
               <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-600 hover:text-white transition">
@@ -570,7 +570,7 @@ function getFooterHtml() {
 
           <!-- Column 2: Quick Links -->
           <div>
-            <h4 class="font-bold text-white mb-6 text-sm uppercase tracking-wider">Brzi linkovi</h4>
+            <h4 class="font-bold text-white mb-6 text-sm uppercase tracking-wider">Navigacija</h4>
             <ul class="space-y-3">
               <li><a href="index.html#izleti" class="text-slate-400 hover:text-white transition text-sm">Kalendar izleta</a></li>
               <li><a href="pristupnica.html" class="text-slate-400 hover:text-white transition text-sm">Članstvo</a></li>
