@@ -17,7 +17,7 @@ const featuredCards = {
     buttonLink: "trip.html?id=1"
   },
   clanstvo: {
-    image: "https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=300&q=80",
+    image: "materials/miv-ops.jpeg",
     alt: "Membership",
     badge: "Škola 2026",
     title: "Upisi u planinarsku školu",
