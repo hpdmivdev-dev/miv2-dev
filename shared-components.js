@@ -544,7 +544,7 @@ function getFooterHtml() {
           <!-- Column 1: About -->
           <div>
             <a href="index.html" class="inline-block mb-4">
-              <img src="materials/logo.png" alt="HPD MIV" class="h-14" />
+              <img src="materials/logo2.png" alt="HPD MIV" class="h-20" />
             </a>
             <p class="text-slate-400 text-sm mb-6 leading-relaxed">
               Hrvatsko planinarsko društvo "MIV" Varaždin - više od 40 godina tradicije, planinarstva i zajedništva.
